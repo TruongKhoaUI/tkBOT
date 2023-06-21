@@ -102,4 +102,4 @@ async def on_command_error(ctx, error):
 
 # Keep bot online 24/7 and token included
 keep_alive()
-client.run(os.environ['bot_token'])
+client.run(os.environ['bot_token']) 
