@@ -34,8 +34,9 @@ from botlogsmessage.svkicked import Serverkick
 
 # Bot settings
 # Commands
-client = discord.Client(intents = discord.Intents.all())
-client = commands.Bot(command_prefix='tk!', intents=discord.Intents.all())
+intents = discord.Intents.all()
+client = discord.Client(intents = intents)
+client = commands.Bot(command_prefix='tk!', intents = intents)
 client.remove_command("help")
 print("Connecting...")
 
