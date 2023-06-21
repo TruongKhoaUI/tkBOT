@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>tkBOT Flask app</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+  <link rel="icon" href="logo.png">
+</head>
+<style>
+  /** Main page **/
+  body {margin: 0%; padding: 0%; background: linear-gradient(-45deg,#005397, #fd007e); background-size: 300% 300%; animation: color 12s ease-in-out infinite;}
+  @keyframes color{0%{background-position-x: 0 50%;} 50%{background-position: 100% 50%;} 100%{background-position: 0 50%;}}
+  div {font-family: Inter, sans-serif; color: rgb(255, 255, 255); font-size: 50px;}
+
+  /** Blur window effect **/
+  .blur {backdrop-filter: blur(5px); background-color: rgba(0,0,0,.5); padding: 40px; border-radius: 30px; width: 70%; height: 100%; text-align: center; margin: auto; box-shadow: 0px 0px 20px rgba(0,0,0,.5);}
+
+  /** Header content **/
+  .container{font-family: Inter, sans-serif; color: #fff; text-align: center; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+  header {image-resolution: 100x100; image-rendering: pixelated; text-align: left; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+
+  /** Text, paragraph for the page **/
+  h1 {text-align: left; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-family: Inter, sans-serif; font-size: 40px; color: rgb(255, 255, 255);}
+  h2 {text-align: left; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-family: Inter, sans-serif; font-size: 25px; color: rgb(255, 255, 255);}
+  p {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+
+  /* Scrollbar 20px */
+  ::-webkit-scrollbar {width: 20px;}
+  ::-webkit-scrollbar-track {background: #525252;}
+  ::-webkit-scrollbar-thumb {background: #888; border-radius: 20px;}
+  ::-webkit-scrollbar-thumb:hover {background: #838383;}
+</style>
+<body>
+    <div class="container">
+    </div>
+    <div class="blur">
+        <h1>Hello there!</h1>
+        <h2>This bot is using the Flask app to hosting online 24/7 on Replit.</h2>
+    </div>
+</body>
+</title>
+</html>

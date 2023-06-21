@@ -1,0 +1,134 @@
+----- Version 1.0.0.20230422 -----
+- Released the first bot version.
+
+----- Version 1.0.7.20230423 -----
+- Add "userinfo" and "aboutbot" command.
+- Add "keep_alive.py" file for make sure the bot will online forever.
+
+----- Version 1.1.3.20230425 -----
+- Add "ping" command to view the speed of replying message.
+
+----- Version 1.1.8.20230426 -----
+- Rename the "aboutbot" command to "botinfo" command.
+- Add "help" and "list" command to view all commands.
+
+----- Version 1.2.4.20230428 -----
+- Add thumbnails for "userinfo" command and bug fixes.
+- Add disk, RAM and CPU usage features to "botinfo" command.
+
+----- Version 1.3.0.20230429 -----
+- Add slash commands to make easier than ever.
+
+----- Version 1.3.7.20230430 -----
+- Add "repeat" command.
+
+----- Version 1.4.0.20230501 -----
+- Fixed some bugs in every commands.
+
+----- Version 1.4.2.20230502 -----
+- Fixed the "userinfo" command make sure it will be not crash in DM.
+
+----- Version 1.4.5.20230503 -----
+- Add "logotext" command.
+- "keep_alive.py" file we have add a command to hide all texts in console page.
+- Add disk usage for root directory for "botinfo" command.
+
+----- Version 1.4.9.20230503 -----
+- Add "image" command to find the image on the internet with Discord.
+- Rename "repeat" command to "echo".
+- Add "whatsnew" command to check new features and bug fixes for this bot.
+
+----- Version 1.5.0.20230505 -----
+- Bug fixes on "botinfo" command.
+
+----- Version 1.5.4.20230512 -----
+- Changed "logotext" to "neofetch" command.
+
+----- Version 1.5.6.20230513 -----
+- Improved "ping" command by embed messages.
+
+----- Version 1.6.0.20230514 -----
+- Removed "Network Send/Received" in "botinfo" command.
+
+----- Version 1.6.1.20230516 -----
+- Added typing triggering in prefix command.
+
+----- Version 1.6.4.20230522 -----
+- Added "poll" command to let you create a question if you want to say.
+
+----- Version 1.6.6.20230523 -----
+- Improving "help" command by adding buttons to every commands to make easier.
+- Fix `botinfo` by adding buttons for connections.
+
+----- Version 1.6.7.20230526 -----
+- Arrange list in "botinfo" command.
+
+----- Version 1.6.8.20230526 -----
+- Improve "ping" command by adding Discord Gateway latency.
+
+----- Version 1.7.0.20230527 -----
+- Added moderation command in prefix to make secure.
+
+----- Version 1.7.2.20230530 -----
+- Changed the percent to megabytes usage of RAM usage.
+- Fixed "wikidiscovery" command by adding the search suggestion when you meeting by adding the code "except wikipedia.exceptions.DisambiguationError as e:".
+- Fixed the "userinfo" and "pfp" command to let it discoverable.
+
+----- Version 1.7.3.20230531 -----
+- Fixed the "echo" command in prefix when the "message" value is empty.
+
+----- Version 1.7.4.20230531 -----
+- Fixed "wikidiscovery" and "userinfo" command for this error "The application did not respond".
+- Changed the "redirect" from False to True on "wikidiscovery" command to disable the annoying when searching some information.
+
+----- Version 1.7.5.20230601 -----
+- Fixed moderation command in slash commands for sending messages in DM.
+- Fixed "help" command by editing moderation buttons helps button for moderator only.
+
+----- Version 1.7.6.20230602 -----
+- Fixed "image" command.
+
+----- Version 1.7.7.20230603 -----
+- Removed help for moderation command for public user.
+
+----- Version 1.8.0.20230604 -----
+- Added Roles in total for "serverinfo" command.
+- Fixed "pfp" command on prefix for the error of the short or long user ID.
+- Change "bot" to "client" for the discord.Bot instead of commands.Bot.
+
+----- Version 1.8.1.20230608 -----
+- Fixed "userinfo" and "serverinfo" for the avatar display icon.
+- Added more information for "serverinfo" command.
+
+----- Version 1.8.2.20230609 -----
+- Fixed the "pfp" and "userinfo" for the discord.Member command can't use the mention in DM by adding a code is discord.User.
+- Added some moderation command is "deletechat" to delete the previous chat amount.
+
+----- Version 1.8.3.20230612 -----
+- Removed "deletechat" command.
+
+----- Version 1.8.5.20230615 -----
+- Added command describe to make people understand when using commands.
+- Fixed the moderation command for using this to do something for the bot like fix the HTTPExecption.
+
+----- Version 1.8.6.20230615 -----
+- Extended commands into every files.
+- Improving the "help" command by changing it to select menu.
+
+----- Version 1.9.0.20230616 -----
+- Fixed "wikidiscovery" command for the less information.
+- Fixed some code to disable the error "so I'm using the best available HTML parser". for the "wikidiscovery" command.
+
+----- Version 1.9.1.20230617 -----
+- Added "removepoints" to remove the points from the specific guild for all members.
+- Fixed "leaderboard" for the leaderboard crash when the members is too much.
+
+----- Version 1.9.2.20230618 -----
+- Fixed some code for the leaderboard command for let it can't excute slow
+
+----- Version 1.9.3.20230620 -----
+- Added "mute" and "unmute" command for the moderation.
+
+----- Version 1.9.4.20230621 -----
+- Fixed "userinfo" command for the Server Member since when you're trying to view user information in DM.
+- Fixed "leaderboard" command for the error @commands.Cog.listener when using another command and this one gets error in DM.
