@@ -21,7 +21,7 @@ class WikidiscoveryCommandSlash(commands.Cog):
       embed = discord.Embed(title=f"Searched for {search}", description=f"{e}", color=0x3f48cc)
       await interaction.response.send_message(embed=embed)
     # This message will be sent if the keyword you provived is not available on Wikipedia
-    except wikipedia.exceptions.PageError as e:
+    except wikipedia.exceptions.PageError:
       embed = discord.Embed(title=f"Searched for {search}", description="The information you provided doesn't match any query.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed)
 
