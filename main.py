@@ -47,8 +47,7 @@ start_time = datetime.datetime.now()
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # View the custom status of bot and bot connect status
-
-@client.event # Connected session
+@client.event # Connected status
 async def on_ready():
   await client.change_presence(status=discord.Status.online, activity=discord.Game(name="tk!help and /help"))
   # Import commands
