@@ -132,3 +132,6 @@
 ----- Version 1.9.4.20230621 -----
 - Fixed "userinfo" command for the Server Member since when you're trying to view user information in DM.
 - Fixed "leaderboard" command for the error @commands.Cog.listener when using another command and this one gets error in DM.
+
+----- Version 1.9.5.20230622 -----
+- Fixed the moderation command for the error spamming "{member} have been kicked" but actually they're not in the guild.
