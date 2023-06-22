@@ -54,7 +54,7 @@ class HelpCommand(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!kick [user] [reason]` or `/kick [user] [reason]` or to kick someone.", inline=False)
             elif interaction.data["values"][0] == "leaderboard":
               embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 8 seconds you will get 3 points.", inline=False)
+              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)
             elif interaction.data["values"][0] == "mute":
               embed = discord.Embed(title="Help with `mute` command", description="**This command will mute the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!mute [user] [time]` or `/mute [user] [time]` to mute someone. The minimum of time for the time is more than 60 seconds.", inline=False)
@@ -122,7 +122,7 @@ class HelpCommand(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!image [image]` or `/image [image]` to generate a image from the internet", inline=False)
             elif interaction.data["values"][0] == "leaderboard":
               embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 8 seconds you will get 3 points.", inline=False)          
+              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)          
             elif interaction.data["values"][0] == "pfp":
               embed = discord.Embed(title="Help with `pfp` command", description="**This command will show the members image profile.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!image` or `/image` to show your profile picture. If you want to see profile picture from another member, use `tk!pfp @user` or `/pfp @user`.", inline=False)
@@ -190,7 +190,7 @@ class HelpCommand(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!kick [user] [reason]` or `/kick [user] [reason]` or to kick someone.", inline=False)
             elif interaction.data["values"][0] == "leaderboard":
               embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 8 seconds you will get 3 points.", inline=False)              
+              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
             elif interaction.data["values"][0] == "mute":
               embed = discord.Embed(title="Help with `mute` command", description="**This command will mute the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!mute [user] [time]` or `/mute [user] [time]` to mute someone. The minimum of time for the time is more than 60 seconds.", inline=False)
