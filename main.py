@@ -16,7 +16,6 @@ from prefixcommands.leaderboard import LeaderboardCommand; from slashcommands.le
 from prefixcommands.mute import MuteCommand; from slashcommands.mute import MuteCommandSlash
 from prefixcommands.pfp import PfpCommand; from slashcommands.pfp import PfpCommandSlash
 from prefixcommands.ping import PingCommand; from slashcommands.ping import PingCommandSlash
-from prefixcommands.poll import PollCommand; from slashcommands.poll import PollCommandSlash
 from prefixcommands.resetpoints import ResetpointsCommand; from slashcommands.resetpoints import ResetpointsCommandSlash
 from prefixcommands.serverinfo import ServerinfoCommand; from slashcommands.serverinfo import ServerinfoCommandSlash
 from prefixcommands.timeout import TimeoutCommand; from slashcommands.timeout import TimeoutCommandSlash
@@ -62,7 +61,6 @@ async def on_ready():
   await client.add_cog(MuteCommand(client)); await client.add_cog(MuteCommandSlash(client))
   await client.add_cog(PfpCommand(client)); await client.add_cog(PfpCommandSlash(client))
   await client.add_cog(PingCommand(client)); await client.add_cog(PingCommandSlash(client))
-  await client.add_cog(PollCommand(client)); await client.add_cog(PollCommandSlash(client))
   await client.add_cog(ResetpointsCommand(client)); await client.add_cog(ResetpointsCommandSlash(client))
   await client.add_cog(ServerinfoCommand(client)); await client.add_cog(ServerinfoCommandSlash(client))
   await client.add_cog(TimeoutCommand(client)); await client.add_cog(TimeoutCommandSlash(client))
