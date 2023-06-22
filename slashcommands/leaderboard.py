@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from discord import app_commands
 from math import ceil
 
-cooldown = timedelta(seconds=8)
+cooldown = timedelta(seconds=10)
 last_message = {} 
 
 class LeaderboardCommandSlash(commands.Cog):
