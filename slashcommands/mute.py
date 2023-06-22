@@ -33,6 +33,11 @@ class MuteCommandSlash(commands.Cog):
         embed = discord.Embed(title="Mute the member", description="You can't use this command to mute this bot that it is using this command.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed)
         return           
+      # Check if the member is in the guild
+      if member not in ctx.guild.members:
+        embed = discord.Embed(title="Mute the member", description="The user you want to mute is not on this guild or not available.", color=0x3f48cc)
+        await interaction.response.send_message(embed=embed)
+        return         
       # Mute the member
       try:
         muted_role = discord.utils.get(ctx.guild.roles, name='Muted by tkBOT')

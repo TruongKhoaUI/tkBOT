@@ -28,6 +28,11 @@ class UnmuteCommand(commands.Cog):
         if member == ctx.guild.me:
           embed = discord.Embed(title="Unmute the member", description="You can't use this command to unmute this bot that it is using this command.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author = False)
+          return    
+        # Check if the member is in the guild
+        if member not in ctx.guild.members:
+          embed = discord.Embed(title="Unmute the member", description="The user you want to unmute is not on this guild or not available.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author = False)
           return           
         # Unmute the member
         try:

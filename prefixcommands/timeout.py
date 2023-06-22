@@ -29,6 +29,11 @@ class TimeoutCommand(commands.Cog):
         if member == ctx.guild.me:
           embed = discord.Embed(title="Timeout the member", description="You can't use this command to timeout this bot that it is using this command.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author=False)
+          return       
+        # Check if the member is in the guild
+        if member not in ctx.guild.members:
+          embed = discord.Embed(title="Timeout the member", description="The user you want to timeout is not on this guild or not available.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author = False)
           return           
         # This message will sent if the `time` value is missing
         if time is None:

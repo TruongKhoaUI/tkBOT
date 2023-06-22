@@ -28,12 +28,17 @@ class KickCommand(commands.Cog):
         if member == ctx.guild.me:
           embed = discord.Embed(title="Kick the member", description="You can't use this command to kick this bot that it is using this command.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author=False)
+          return         
+        # Check if the member is in the guild
+        if member not in ctx.guild.members:
+          embed = discord.Embed(title="Kick the member", description="The user you want to kick is not on this guild or not available.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author = False)
           return           
         # This message will sent if the `reason` value is missing
         if reason is None:
           embed = discord.Embed(title="Kick the member", description="Please give a reason why they need to kick.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author = False)
-          return
+          return          
         # Kick the member
         try:
           await ctx.guild.kick(member, reason=reason)

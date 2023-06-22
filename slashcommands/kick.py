@@ -28,6 +28,11 @@ class KickCommandSlash(commands.Cog):
         embed = discord.Embed(title="Kick the member", description="You can't kick yourself.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed)
         return
+      # Check if the member is in the guild
+      if member not in ctx.guild.members:
+        embed = discord.Embed(title="Kick the member", description="The user you want to kick is not on this guild or not available.", color=0x3f48cc)
+        await interaction.response.send_message(embed=embed)
+        return        
       # Kick the member
       try:
         await ctx.guild.kick(member, reason=reason)

@@ -27,6 +27,11 @@ class MuteCommand(commands.Cog):
             embed = discord.Embed(title="Mute the member", description="Please enter a user, and how much time they need to mute.", color=0x3f48cc)
             await ctx.reply(embed=embed, mention_author = False)
             return
+        # Check if the member is in the guild
+        if member not in ctx.guild.members:
+          embed = discord.Embed(title="Mute the member", description="The user you want to mute is not on this guild or not available.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author = False)
+          return             
         # This message will sent if the `time` value is missing
         if time is None:
           async with ctx.typing():

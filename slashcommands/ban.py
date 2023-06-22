@@ -28,6 +28,11 @@ class BanCommandSlash(commands.Cog):
         embed = discord.Embed(title="Ban the member", description="You can't ban yourself.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed)
         return
+      # Check if the member is in the guild
+      if member not in ctx.guild.members:
+        embed = discord.Embed(title="Ban the member", description="The user you want to ban is not on this guild or not available.", color=0x3f48cc)
+        await interaction.response.send_message(embed=embed)
+        return        
       # Ban the member  
       try:
         await ctx.guild.ban(member, reason=reason)

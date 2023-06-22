@@ -32,7 +32,7 @@ class BotinfoCommandSlash(commands.Cog):
     embed.set_author(name="tkBOT")
     embed.set_thumbnail(url=member.avatar.url)
     # About bot specifications
-    embed.add_field(name='**Bot specifications**', value=f'- 🤖｜Bot Version: 1.9.4.20230621\n- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n- ⌚｜Uptime: {uptime_string}', inline=False)
+    embed.add_field(name='**Bot specifications**', value=f'- 🤖｜Bot Version: 1.9.5.20230622\n- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n- ⌚｜Uptime: {uptime_string}', inline=False)
     embed.add_field(name='**Stats**', value=f"- 🏠｜Servers: {total_servers}\n- 📝｜Channels: {total_channels}\n- 👥｜Members: {total_members}", inline=False)
     embed.add_field(name='**Hardware info**', value=f'- 💻｜CPU Usage: {psutil.cpu_percent()}%\n- 📝｜RAM Usage: {memory_used_mb}/512MB', inline=False)
     embed.add_field(name='**Links**', value="- ➕｜[Add to server](https://discord.com/api/oauth2/authorize?client_id=1098583942145257534&permissions=8&scope=applications.commands%20bot)\n- 🏠｜[Support server](https://discord.com/invite/FuuzWRqYaz)\n- 📂｜[Replit Project](https://repl.it/@truongkhoaui/tkBOT)", inline=False)

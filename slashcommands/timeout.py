@@ -34,6 +34,11 @@ class TimeoutCommandSlash(commands.Cog):
         embed = discord.Embed(title="Timeout the member", description="The timeout must be more than 60 seconds.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed)
         return
+      # Check if the member is in the guild
+      if member not in ctx.guild.members:
+        embed = discord.Embed(title="Timeout the member", description="The user you want to timeout is not on this guild or not available.", color=0x3f48cc)
+        await interaction.response.send_message(embed=embed)
+        return        
       # Timeout the member
       try:
         await member.timeout(datetime.timedelta(seconds=time), reason=reason)
