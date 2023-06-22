@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from discord.ui import Button, View
 from discord import app_commands
 
 class HelpCommandSlash(commands.Cog):
@@ -11,7 +10,6 @@ class HelpCommandSlash(commands.Cog):
   async def help(self, interaction: discord.Interaction):
       ctx = interaction
       if ctx.guild:
-        guild = ctx.guild
         if ctx.user.guild_permissions.administrator:
           # Select menu
           options = [

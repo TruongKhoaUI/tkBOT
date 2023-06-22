@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from discord.ui import Button, View
 
 class HelpCommand(commands.Cog):
   def __init__(self, bot):
@@ -10,7 +9,6 @@ class HelpCommand(commands.Cog):
   async def help(self, ctx):
     async with ctx.typing():
       if ctx.guild:
-        guild = ctx.guild
         if ctx.author.guild_permissions.administrator:
           # Select menu
           options = [
