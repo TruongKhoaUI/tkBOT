@@ -300,14 +300,6 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "numpy"
-version = "1.24.1"
-description = "Fundamental package for array computing in Python"
-category = "main"
-optional = false
-python-versions = ">=3.8"
-
-[[package]]
 name = "packaging"
 version = "23.0"
 description = "Core utilities for Python packages"
@@ -666,7 +658,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "d1de5d615bc3cc67afd52095cecbb7ebb12c931c9300c9fd3d16554955acab79"
+content-hash = "1e69f4923c34897ef4496aa49d7f4abb19a722f4ae3f04e834009dc1769e0cf4"
 
 [metadata.files]
 aiohttp = []
@@ -694,7 +686,6 @@ jedi = []
 jinja2 = []
 markupsafe = []
 multidict = []
-numpy = []
 packaging = []
 parso = []
 passlib = []
