@@ -1,7 +1,7 @@
 # Import packages to make bot work correctly
 import datetime; import discord; import os
 # Import the sub-packages
-from discord.ext import commands; from keep_alive import keep_alive
+from discord.ext import commands; from keep_alive import keep_alive; from discord import app_commands
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -89,12 +89,15 @@ async def on_ready():
   print("----------------------------------------")
   print()
 
+# Ignore the command error
 @client.event
 async def on_command_error(ctx, error):
   async with ctx.typing():
     if isinstance(error, commands.CommandNotFound):
       embed = discord.Embed(title="Command not found", description="The command you provived is not available or not registered.", color=0x3f48cc)
       await ctx.reply(embed=embed, mention_author = False)
+
+
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
