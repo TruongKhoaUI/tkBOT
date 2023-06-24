@@ -22,7 +22,6 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="mute", description="Help with `mute` command", emoji="🔈"),                
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
-              discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
               discord.SelectOption(label="resetpoints", description="Help with `resetpoints` command", emoji="🥇"),
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
@@ -36,7 +35,7 @@ class HelpCommand(commands.Cog):
           async def callback(interaction):
             if interaction.data["values"][0] == "ban":
               embed = discord.Embed(title="Help with `ban` command", description="**This command will ban the specific member on the specific server.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!ban [user] [reason]` `/ban [user] [reason]` to ban someone.", inline=False)
+              embed.add_field(name="How to use it", value="Type `tk!ban [user] [reason]` `/ban [user] [reason]` to ban someone.", inline=False)              
             elif interaction.data["values"][0] == "botinfo":
               embed = discord.Embed(title="Help with `botinfo` command", description="**This command will show the information about this bot such as CPU, RAM, and disk usage.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!botinfo` or `/botinfo` to let it show the bot status.", inline=False)
@@ -64,9 +63,6 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "ping":
               embed = discord.Embed(title="Help with `ping` command", description="**This command will show the time the bot responds in Discord lantency time.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!ping` or `/ping` to show the time the bot responds.", inline=False)
-            elif interaction.data["values"][0] == "poll":
-              embed = discord.Embed(title="Help with `poll` command", description="**This command will generate the question you have asked for the members to let they react to your question.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!poll [question]` or `/poll [question]` to create question you want to ask include the react under the message.", inline=False)
             elif interaction.data["values"][0] == "resetpoints":
               embed = discord.Embed(title="Help with `resetpoints` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
               embed.add_field(name="How to use it", value="Type `tk!resetpoints` or `/resetpoints` to remove all of the points for all members in the specific guild.", inline=False)              
@@ -85,7 +81,9 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "wikidiscovery":
               embed = discord.Embed(title="Help with `wikidiscovery` command", description="**This command will search the information you provived in Wikipedia.**", color=0x3f48cc)
               embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)
-            await interaction.response.edit_message(content="", embed=embed, view=None)
+            else:
+                embed = discord.Embed(title="Invalid Option", description="This option is not recognized.", color=0x3f48cc)                
+            await interaction.response.edit_message(content="", embed=embed, view=None)          
           select.callback = callback
           embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
           await ctx.reply(embed=embed, view=view, mention_author = False)
@@ -99,7 +97,6 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="leaderboard", description="Help with `leaderboard` command", emoji="🥇"),            
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
-              discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
               discord.SelectOption(label="wikidiscovery", description="Help with `wikidiscovery` command", emoji="🌎")
@@ -129,9 +126,6 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "ping":
               embed = discord.Embed(title="Help with `ping` command", description="**This command will show the time the bot responds in Discord lantency time.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!ping` or `/ping` to show the time the bot responds.", inline=False)
-            elif interaction.data["values"][0] == "poll":
-              embed = discord.Embed(title="Help with `poll` command", description="**This command will generate the question you have asked for the members to let they react to your question.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!poll [question]` or `/poll [question]` to create question you want to ask include the react under the message.", inline=False)
             elif interaction.data["values"][0] == "serverinfo":
               embed = discord.Embed(title="Help with `serverinfo` command", description="**This command will show the information about the current server you're in.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!serverinfo` or `/serverinfo` to show the information about the current server you're in.", inline=False)
@@ -158,7 +152,6 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="mute", description="Help with `mute` command", emoji="🔈"),      
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
-              discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
               discord.SelectOption(label="resetpoints", description="Help with `resetpoints` command", emoji="🥇"),              
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
@@ -200,9 +193,6 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "ping":
               embed = discord.Embed(title="Help with `ping` command", description="**This command will show the time the bot responds in Discord lantency time.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!ping` or `/ping` to show the time the bot responds.", inline=False)
-            elif interaction.data["values"][0] == "poll":
-              embed = discord.Embed(title="Help with `poll` command", description="**This command will generate the question you have asked for the members to let they react to your question.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!poll [question]` or `/poll [question]` to create question you want to ask include the react under the message.", inline=False)
             elif interaction.data["values"][0] == "resetpoints":
               embed = discord.Embed(title="Help with `resetpoints` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
               embed.add_field(name="How to use it", value="Type `tk!resetpoints` or `/resetpoints` to remove all of the points for all members in the specific guild.", inline=False)                   
