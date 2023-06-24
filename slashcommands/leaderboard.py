@@ -36,17 +36,23 @@ class LeaderboardCommandSlash(commands.Cog):
     if message.author.id in last_message and now - last_message[message.author.id] < cooldown:
       return
     last_message[message.author.id] = now
+    # Check if the message author is the bot
+    if message.author == self.bot.user:
+      return
     with open('level.json', 'r') as f:
       points = json.load(f)
     guild_id = str(message.guild.id)
     if guild_id not in points:
       points[guild_id] = {}
     author_id = str(message.author.id)
+    # Check if the author is the bot
+    if author_id == str(self.bot.user.id):
+      return
     if author_id not in points[guild_id]:
       points[guild_id][author_id] = 0
     points[guild_id][author_id] += 0
     with open('level.json', 'w') as f:
-      json.dump(points, f) 
+      json.dump(points, f)
         
   @app_commands.command(name="leaderboard", description="View the leaderboard")
   @app_commands.describe(page="View the next top 10 page.")
