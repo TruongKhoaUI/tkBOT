@@ -32,8 +32,10 @@
 
 * ban
 * kick
+* mute
 * resetpoints
 * timeout
+* unmute
 
   </td>
 </tr></table>
