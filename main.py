@@ -74,8 +74,11 @@ async def on_ready():
   await client.add_cog(Serverjoin(client))
   await client.add_cog(Serverkick(client))
   # If this text does not appear in print command, that means the bot failed to connect
-  print(f"Last connected at {start_time.strftime('%a %d %B %Y, %I:%M %p')}")
-  print("Successfully connected to Discord Bot account as {0.user}".format(client))
+  class TextFormat:
+    BOLD = '\033[1m'
+    RESET = '\033[0m'
+  print("Last connected at", TextFormat.BOLD + f"{start_time.strftime('%a %d %B %Y, %I:%M %p')}" + TextFormat.RESET)
+  print(f"Successfully connected to Discord Bot account as", TextFormat.BOLD + f"{client.user}" + TextFormat.RESET)
   session_id = client._connection._get_websocket(shard_id=None).session_id
   botconnectid = client.get_channel(int(os.getenv('bot_channel_connect_id')))
   try:
