@@ -15,10 +15,10 @@ class ResetpointsCommandSlash(commands.Cog):
         embed = discord.Embed(title="Leaderboard reset points", description="You don't have permission to use this command.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed)
       else:
-        with open('level.json', 'r') as f:
+        with open('/home/runner/level.json', 'r') as f:
           points = json.load(f)
         points[str(ctx.guild.id)] = {}
-        with open('level.json', 'w') as f:
+        with open('/home/runner/level.json', 'w') as f:
           json.dump(points, f)
         embed = discord.Embed(title="Leaderboard reset points", description="All points have reset to 0 for all members on this server.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed)
