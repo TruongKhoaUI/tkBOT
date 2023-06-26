@@ -80,9 +80,7 @@ class HelpCommand(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!userinfo` or `/userinfo` to show the information about you. If you want to see user information from another members, type `tk!userinfo @user` or `/userinfo @user`.", inline=False)
             elif interaction.data["values"][0] == "wikidiscovery":
               embed = discord.Embed(title="Help with `wikidiscovery` command", description="**This command will search the information you provived in Wikipedia.**", color=0x3f48cc)
-              embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)
-            else:
-                embed = discord.Embed(title="Invalid Option", description="This option is not recognized.", color=0x3f48cc)                
+              embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)                
             await interaction.response.edit_message(content="", embed=embed, view=None)          
           select.callback = callback
           embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
