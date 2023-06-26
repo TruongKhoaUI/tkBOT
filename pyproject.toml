@@ -10,7 +10,6 @@ replit = "^3.2.4"
 psutil = "^5.9.5"
 wikipedia = "^1.4.0"
 discord = "^2.3.0"
-Flask = "2.3.2"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
