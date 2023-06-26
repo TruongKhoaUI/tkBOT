@@ -21,7 +21,7 @@ class ImageCommand(commands.Cog):
         i = 1
         while os.path.exists(f"/home/runner/image/image{i}.jpg"):
           i += 1
-        with open(f"image/image{i}.jpg", "wb") as f:
+        with open(f"/home/runner/image/image{i}.jpg", "wb") as f:
           f.write(image_bytes)
         file = discord.File(f"/home/runner/image/image{i}.jpg", filename=f"image{i}.jpg")
         embed = discord.Embed(title=f"Image searched for: {search}", description="Generation successful.", color=0x3f48cc)
