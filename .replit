@@ -4,9 +4,8 @@ run = "python3 main.py"
 # The primary language of the repl. There can be others, though!
 language = "python3"
 entrypoint = "main.py"
-# A list of globs that specify which files and directories should
-# be hidden in the workspace.
-hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
+# A list of globs that specify which files and directories should be hidden in the workspace.
+hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc", "image", "level.json"]
 
 # Specifies which nix channel to use when building the environment.
 [nix]
@@ -90,10 +89,7 @@ ignoredPackages = ["unit_tests"]
   # Enable guessing what packages are needed from the code.
   guessImports = true
 
-# These are the files that need to be preserved when this 
-# language template is used as the base language template
-# for Python repos imported from GitHub
-[gitHubImport]
+# These are the files that need to be preserved when this language template is used as the base language template for Python repos imported from GitHub [gitHubImport]
 requiredFiles = [".replit", "replit.nix", ".config", "venv"]
 
 [languages]
