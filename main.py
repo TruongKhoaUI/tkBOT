@@ -53,67 +53,66 @@ from botlogsmessage.svkicked import Serverkick
 # Bot settings
 # Commands
 intents = discord.Intents.all()
-client = discord.Client(intents = intents)
-client = commands.Bot(command_prefix='tk!', intents = intents)
-client.remove_command("help")
+bot = commands.Bot(command_prefix='tk!', intents = intents)
+bot.remove_command("help")
 print("Connecting...")
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # View the custom status of bot and bot connect status
-@client.event # Connected status
+@bot.event # Connected status
 async def on_ready():
-  await client.change_presence(status=discord.Status.online, activity=discord.Game(name="tk!help and /help"))
+  await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="tk!help and /help"))
   # Import commands
-  await client.add_cog(BanCommand(client))
-  await client.add_cog(BanCommandSlash(client))
-  await client.add_cog(BotinfoCommand(client))
-  await client.add_cog(BotinfoCommandSlash(client))
-  await client.add_cog(EchoCommand(client))
-  await client.add_cog(EchoCommandSlash(client))
-  await client.add_cog(HelpCommand(client))
-  await client.add_cog(HelpCommandSlash(client))
-  await client.add_cog(ImageCommand(client))
-  await client.add_cog(ImageCommandSlash(client))
-  await client.add_cog(KickCommand(client))
-  await client.add_cog(KickCommandSlash(client))
-  await client.add_cog(LeaderboardCommand(client))
-  await client.add_cog(LeaderboardCommandSlash(client))
-  await client.add_cog(MuteCommand(client))
-  await client.add_cog(MuteCommandSlash(client))
-  await client.add_cog(PfpCommand(client))
-  await client.add_cog(PfpCommandSlash(client))
-  await client.add_cog(PingCommand(client))
-  await client.add_cog(PingCommandSlash(client))
-  await client.add_cog(ResetpointsCommand(client))
-  await client.add_cog(ResetpointsCommandSlash(client))
-  await client.add_cog(ServerinfoCommand(client))
-  await client.add_cog(ServerinfoCommandSlash(client))
-  await client.add_cog(TimeoutCommand(client))
-  await client.add_cog(TimeoutCommandSlash(client))
-  await client.add_cog(UnmuteCommand(client))
-  await client.add_cog(UnmuteCommandSlash(client))
-  await client.add_cog(UserinfoCommand(client))
-  await client.add_cog(UserinfoCommandSlash(client))
-  await client.add_cog(WikidiscoveryCommand(client))
-  await client.add_cog(WikidiscoveryCommandSlash(client))
+  await bot.add_cog(BanCommand(bot))
+  await bot.add_cog(BanCommandSlash(bot))
+  await bot.add_cog(BotinfoCommand(bot))
+  await bot.add_cog(BotinfoCommandSlash(bot))
+  await bot.add_cog(EchoCommand(bot))
+  await bot.add_cog(EchoCommandSlash(bot))
+  await bot.add_cog(HelpCommand(bot))
+  await bot.add_cog(HelpCommandSlash(bot))
+  await bot.add_cog(ImageCommand(bot))
+  await bot.add_cog(ImageCommandSlash(bot))
+  await bot.add_cog(KickCommand(bot))
+  await bot.add_cog(KickCommandSlash(bot))
+  await bot.add_cog(LeaderboardCommand(bot))
+  await bot.add_cog(LeaderboardCommandSlash(bot))
+  await bot.add_cog(MuteCommand(bot))
+  await bot.add_cog(MuteCommandSlash(bot))
+  await bot.add_cog(PfpCommand(bot))
+  await bot.add_cog(PfpCommandSlash(bot))
+  await bot.add_cog(PingCommand(bot))
+  await bot.add_cog(PingCommandSlash(bot))
+  await bot.add_cog(ResetpointsCommand(bot))
+  await bot.add_cog(ResetpointsCommandSlash(bot))
+  await bot.add_cog(ServerinfoCommand(bot))
+  await bot.add_cog(ServerinfoCommandSlash(bot))
+  await bot.add_cog(TimeoutCommand(bot))
+  await bot.add_cog(TimeoutCommandSlash(bot))
+  await bot.add_cog(UnmuteCommand(bot))
+  await bot.add_cog(UnmuteCommandSlash(bot))
+  await bot.add_cog(UserinfoCommand(bot))
+  await bot.add_cog(UserinfoCommandSlash(bot))
+  await bot.add_cog(WikidiscoveryCommand(bot))
+  await bot.add_cog(WikidiscoveryCommandSlash(bot))
   # Import chatlog code
-  await client.add_cog(Messagesent(client))
-  await client.add_cog(Messageedit(client))
-  await client.add_cog(Messagedelete(client))  
-  await client.add_cog(Serverjoin(client))
-  await client.add_cog(Serverkick(client))
+  await bot.add_cog(Messagesent(bot))
+  await bot.add_cog(Messageedit(bot))
+  await bot.add_cog(Messagedelete(bot))
+  await bot.add_cog(Serverjoin(bot))
+  await bot.add_cog(Serverkick(bot))
   # If this text does not appear in print command, that means the bot failed to connect
   class TextFormat:
     BOLD = '\033[1m'
     RESET = '\033[0m'
   start_time = datetime.datetime.utcnow()
-  session_id = client._connection._get_websocket(shard_id=None).session_id
-  botconnectid = client.get_channel(int(os.getenv('bot_channel_connect_id')))    
+  session_id = bot._connection._get_websocket(shard_id=None).session_id
+  botconnectid = bot.get_channel(int(os.getenv('bot_channel_connect_id')))    
   print("Last connected at", TextFormat.BOLD + f"{start_time.strftime('%a %d %B %Y, %I:%M %p')}" + TextFormat.RESET)
-  print("Successfully connected to Discord Bot account as", TextFormat.BOLD + f"{client.user}" + TextFormat.RESET)
+  print("Successfully connected to Discord Bot account as", TextFormat.BOLD + f"{bot.user}" + TextFormat.RESET)
   try:
-    synced = await client.tree.sync()
+    synced = await bot.tree.sync()
     print("Synced", TextFormat.BOLD + f"{len(synced)} slash command(s)" + TextFormat.RESET, "to the bot")
   except Exception as e:
     print(e)
@@ -124,17 +123,15 @@ async def on_ready():
   print()
 
 # Ignore the command error
-@client.event
+@bot.event
 async def on_command_error(ctx, error):
   async with ctx.typing():
     if isinstance(error, commands.CommandNotFound):
       embed = discord.Embed(title="Command not found", description="The command you provived is not available or not registered.", color=0x3f48cc)
       await ctx.reply(embed=embed, mention_author = False)
 
-
-
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # Keep bot online 24/7 and token included
 keep_alive()
-client.run(os.environ['bot_token'])
+bot.run(os.environ['bot_token'])
