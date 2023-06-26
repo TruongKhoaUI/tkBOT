@@ -22,7 +22,6 @@
 - leaderboard
 - pfp
 - ping
-- poll
 - resetpoints
 - serverinfo
 - userinfo
