@@ -34,4 +34,4 @@ class Messageedit(commands.Cog):
       await channel.send(embed=embed)
 
 def setup(bot):
-  bot.add_cog(Messagesedit(bot))
+  bot.add_cog(Messageedit(bot))
