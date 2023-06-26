@@ -1,5 +1,6 @@
 import discord
 import wikipedia
+import urllib.parse
 from discord.ext import commands
 from discord import app_commands
 
@@ -11,19 +12,19 @@ class WikidiscoveryCommandSlash(commands.Cog):
   @app_commands.describe(search="Enter a keyword.")
   async def wikidiscovery(self, interaction: discord.Interaction, search: str):
     await interaction.response.defer(ephemeral = False)
+    wikisearch = urllib.parse.quote(search)
     try:
       # Search the word that the user requests
       summary = wikipedia.summary(search, auto_suggest=False, redirect=True)
-      embed = discord.Embed(title=f"Searched for {search}", description=f"{summary}", color=0x3f48cc)
-      embed.set_footer(text="Some information may not correctly. Based on Wikipedia.")
+      embed = discord.Embed(title=f"Searched for {search}\nhttps://en.wikipedia.org/wiki/{wikisearch}", description=f"{summary}", color=0x3f48cc)
       await interaction.followup.send(embed=embed)
     # This message will be sent if the keyword you provived is have a lot of options
     except wikipedia.exceptions.DisambiguationError as e:
-      embed = discord.Embed(title=f"Searched for {search}", description=f"{e}", color=0x3f48cc)
+      embed = discord.Embed(title=f"Searched for {search}\nhttps://en.wikipedia.org/wiki/{wikisearch}", description=f"{e}", color=0x3f48cc)
       await interaction.followup.send(embed=embed)
     # This message will be sent if the keyword you provived is not available on Wikipedia
     except wikipedia.exceptions.PageError:
-      embed = discord.Embed(title=f"Searched for {search}", description="The information you provided doesn't match any query.", color=0x3f48cc)
+      embed = discord.Embed(title=f"Searched for {search}\nhttps://en.wikipedia.org/wiki/{wikisearch}", description="The information you provided doesn't match any query.", color=0x3f48cc)
       await interaction.followup.send(embed=embed)
 
 def setup(bot):
