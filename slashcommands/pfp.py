@@ -11,6 +11,7 @@ class PfpCommandSlash(commands.Cog):
   @app_commands.describe(member="Select a specific user.")
   async def pfp(self, interaction: discord.Interaction, member: discord.User = None):
     ctx = interaction
+    await interaction.response.defer(ephemeral = False)
     # If the `member` value is empty, it will show their avatar that they have sent
     if member == None:
       member = ctx.user
@@ -24,7 +25,7 @@ class PfpCommandSlash(commands.Cog):
     # If the profile picture is empty, it will show the Discord logo
     if user.display_avatar != None:
       embed.set_image(url=user.display_avatar.url)
-    await interaction.response.send_message(embed=embed)
+    await interaction.followup.send(embed=embed)
 
 def setup(bot):
   bot.add_cog(PfpCommandSlash(bot))

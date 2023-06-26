@@ -10,10 +10,11 @@ class ResetpointsCommandSlash(commands.Cog):
   @app_commands.command(name="resetpoints", description="Reset points for all members.")
   async def resetpoints(self, interaction: discord.Interaction):
     ctx = interaction
+    await interaction.response.defer(ephemeral = False)
     if ctx.guild:
       if not ctx.user.guild_permissions.administrator:
         embed = discord.Embed(title="Leaderboard reset points", description="You don't have permission to use this command.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
       else:
         with open('/home/runner/level.json', 'r') as f:
           points = json.load(f)
@@ -21,10 +22,10 @@ class ResetpointsCommandSlash(commands.Cog):
         with open('/home/runner/level.json', 'w') as f:
           json.dump(points, f)
         embed = discord.Embed(title="Leaderboard reset points", description="All points have reset to 0 for all members on this server.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
     else:
       embed = discord.Embed(title="Leaderboard reset points", description="You can't use this command when you're in DM.", color=0x3f48cc)
-      await interaction.response.send_message(embed=embed)
+      await interaction.followup.send(embed=embed)
 
 def setup(bot):
   bot.add_cog(ResetpointsCommandSlash(bot))

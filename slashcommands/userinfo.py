@@ -11,6 +11,7 @@ class UserinfoCommandSlash(commands.Cog):
   @app_commands.describe(member="Select a specific user.")
   async def userinfo(self, interaction:discord.Interaction, member:discord.User = None):
       ctx = interaction
+      await interaction.response.defer(ephemeral = False)
       if isinstance(member, int):
         # Get profile picture from a user when they are not in the guild
         try:
@@ -18,7 +19,7 @@ class UserinfoCommandSlash(commands.Cog):
         # It will show this message when the user ID is invaild
         except discord.errors.NotFound:
           embed = discord.Embed(title="User Information", description="Invalid user ID or username.", color=0x3f48cc)
-          await interaction.response.send_message(embed=embed)
+          await interaction.followup.send(embed=embed)
           return
       # If the `member` value is empty, it will show their userinfo that they have sent
       elif member == None:
@@ -43,7 +44,7 @@ class UserinfoCommandSlash(commands.Cog):
           embed.set_thumbnail(url=member.display_avatar.url)
         else:
           embed.set_thumbnail(url=None)
-      await interaction.response.send_message(embed=embed)
+      await interaction.followup.send(embed=embed)
 
 def setup(bot):
   bot.add_cog(UserinfoCommandSlash(bot))

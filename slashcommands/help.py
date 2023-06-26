@@ -9,6 +9,7 @@ class HelpCommandSlash(commands.Cog):
   @app_commands.command(name="help", description="Help with commands") # Help with commands
   async def help(self, interaction: discord.Interaction):
       ctx = interaction
+      await interaction.response.defer(ephemeral = False)
       if ctx.guild:
         if ctx.user.guild_permissions.administrator:
           # Select menu
@@ -85,7 +86,7 @@ class HelpCommandSlash(commands.Cog):
             await interaction.response.edit_message(content="", embed=embed, view=None)
           select.callback = callback
           embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
-          await interaction.response.send_message(embed=embed, view=view)          
+          await interaction.followup.send(embed=embed, view=view)          
         else:
           # Select menu
           options = [
@@ -137,7 +138,7 @@ class HelpCommandSlash(commands.Cog):
             await interaction.response.edit_message(content="", embed=embed, view=None)
           select.callback = callback
           embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
-          await interaction.response.send_message(embed=embed, view=view)
+          await interaction.followup.send(embed=embed, view=view)
       else:
           # Select menu
           options = [
@@ -213,7 +214,7 @@ class HelpCommandSlash(commands.Cog):
             await interaction.response.edit_message(content="", embed=embed, view=None)
           select.callback = callback
           embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
-          await interaction.response.send_message(embed=embed, view=view)
+          await interaction.followup.send(embed=embed, view=view)
 
 def setup(bot):
   bot.add_cog(HelpCommandSlash(bot))

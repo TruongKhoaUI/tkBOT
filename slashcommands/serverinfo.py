@@ -9,6 +9,7 @@ class ServerinfoCommandSlash(commands.Cog):
   @app_commands.command(name="serverinfo", description="View the current server you're in.") # View server information
   async def serverinfo(self, interaction: discord.Interaction):
     ctx = interaction  
+    await interaction.response.defer(ephemeral = False)
     if ctx.guild:
       current_server = ctx.guild
       # View the guild you're in
@@ -22,7 +23,7 @@ class ServerinfoCommandSlash(commands.Cog):
     else:
       embed = discord.Embed(title="Server Information", description="", color=0x3f48cc)
       embed.add_field(name="There isn't any server now...", value="No server joined, or currently in DM.", inline=False)
-    await interaction.response.send_message(embed=embed)
+    await interaction.followup.send(embed=embed)
 
 def setup(bot):
   bot.add_cog(ServerinfoCommandSlash(bot))

@@ -12,31 +12,32 @@ class MuteCommandSlash(commands.Cog):
   @app_commands.describe(time="Enter a time.")
   async def mute(self, interaction: discord.Interaction, member: discord.Member, time: int):
     ctx = interaction
+    await interaction.response.defer(ephemeral = False)    
     if ctx.guild:
       # If the user don't have administrator permissions, they can't use the command
       if not ctx.user.guild_permissions.manage_roles:   
         embed = discord.Embed(title="Mute the member", description="You don't have permission to use this command.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
         return
       # If they mute themselves, it will send this message
       if member == ctx.user:
         embed = discord.Embed(title="Mute the member", description="You can't mute yourself.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
         return
       # This message will sent if the time is less than 60 seconds
       if time < 60:         
         embed = discord.Embed(title="Mute the member", description="The time of mute must be more than 60 seconds.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
         return        
       # If they try to mute the bot, it will send this message
       if member == ctx.guild.me:
         embed = discord.Embed(title="Mute the member", description="You can't use this command to mute this bot that it is using this command.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
         return           
       # Check if the member is in the guild
       if member not in ctx.guild.members:
         embed = discord.Embed(title="Mute the member", description="The user you want to mute is not on this guild or not available.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
         return         
       # Mute the member
       try:
@@ -50,10 +51,10 @@ class MuteCommandSlash(commands.Cog):
         message = f"You have been muted from **{ctx.guild.name}** for **{time} seconds**."
         await member.send(message)
         embed = discord.Embed(title="Mute the member", description=f"**{member}** is muted for **{time} seconds**.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
       except discord.errors.HTTPException as e:
         embed = discord.Embed(title="Mute the member", description=f"**{member}** is muted for **{time} seconds**.", color=0x3f48cc)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
       if time:
         try:
           await asyncio.sleep(time)

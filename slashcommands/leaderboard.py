@@ -58,6 +58,7 @@ class LeaderboardCommandSlash(commands.Cog):
   @app_commands.describe(page="View the next top 10 page.")
   async def leaderboard(self, interaction: discord.Interaction, page: int = 1):
     ctx = interaction
+    await interaction.response.defer(ephemeral = False)
     if ctx.guild:
       with open('/home/runner/level.json', 'r') as f:
         points = json.load(f)
@@ -93,10 +94,10 @@ class LeaderboardCommandSlash(commands.Cog):
       else:
         last_page = ceil(len(sorted_points) / per_page)
         embed.description = f'No more users to show.\nThe last page of the leaderboard is {last_page}.'
-      await interaction.response.send_message(embed=embed)
+      await interaction.followup.send(embed=embed)
     else:
       embed = discord.Embed(title="Leaderboard", description="You can't view the leaderboard when you're in DM.", color=0x3f48cc)
-      await interaction.response.send_message(embed=embed)
+      await interaction.followup.send(embed=embed)
 
 def setup(bot):
   bot.add_cog(LeaderboardCommandSlash(bot))
