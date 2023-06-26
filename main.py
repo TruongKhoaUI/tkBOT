@@ -62,7 +62,8 @@ print("Connecting...")
 # View the custom status of bot and bot connect status
 @bot.event # Connected status
 async def on_ready():
-  await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="tk!help and /help"))
+  game = discord.Game(name='tk!help and /help')
+  await bot.change_presence(activity=game, status=discord.Status.dnd)  
   # Import commands
   await bot.add_cog(BanCommand(bot))
   await bot.add_cog(BanCommandSlash(bot))
