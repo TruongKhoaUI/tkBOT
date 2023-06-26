@@ -135,3 +135,6 @@
 
 ----- Version 1.9.5.20230622 -----
 - Fixed the moderation command for the error spamming "{member} have been kicked" but actually they're not in the guild.
+
+----- Version 1.9.6.20230626 -----
+- Added the defer function for let the bot thinking if the slash command run too slow.
