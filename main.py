@@ -24,8 +24,6 @@ from prefixcommands.kick import KickCommand
 from slashcommands.kick import KickCommandSlash
 from prefixcommands.leaderboard import LeaderboardCommand
 from slashcommands.leaderboard import LeaderboardCommandSlash
-from prefixcommands.mute import MuteCommand
-from slashcommands.mute import MuteCommandSlash
 from prefixcommands.pfp import PfpCommand
 from slashcommands.pfp import PfpCommandSlash
 from prefixcommands.ping import PingCommand
@@ -36,8 +34,6 @@ from prefixcommands.serverinfo import ServerinfoCommand
 from slashcommands.serverinfo import ServerinfoCommandSlash
 from prefixcommands.timeout import TimeoutCommand
 from slashcommands.timeout import TimeoutCommandSlash
-from prefixcommands.unmute import UnmuteCommand
-from slashcommands.unmute import UnmuteCommandSlash
 from prefixcommands.userinfo import UserinfoCommand
 from slashcommands.userinfo import UserinfoCommandSlash
 from prefixcommands.wikidiscovery import WikidiscoveryCommand
@@ -54,6 +50,7 @@ from botlogsmessage.svkicked import Serverkick
 # Bot settings
 # Commands
 intents = discord.Intents.all()
+bot = discord.Client(intents = intents)
 bot = commands.Bot(command_prefix='tk!', intents=intents)
 bot.remove_command("help")
 print("Connecting...")
@@ -80,8 +77,6 @@ async def on_ready():
   await bot.add_cog(KickCommandSlash(bot))
   await bot.add_cog(LeaderboardCommand(bot))
   await bot.add_cog(LeaderboardCommandSlash(bot))
-  await bot.add_cog(MuteCommand(bot))
-  await bot.add_cog(MuteCommandSlash(bot))
   await bot.add_cog(PfpCommand(bot))
   await bot.add_cog(PfpCommandSlash(bot))
   await bot.add_cog(PingCommand(bot))
@@ -92,8 +87,6 @@ async def on_ready():
   await bot.add_cog(ServerinfoCommandSlash(bot))
   await bot.add_cog(TimeoutCommand(bot))
   await bot.add_cog(TimeoutCommandSlash(bot))
-  await bot.add_cog(UnmuteCommand(bot))
-  await bot.add_cog(UnmuteCommandSlash(bot))
   await bot.add_cog(UserinfoCommand(bot))
   await bot.add_cog(UserinfoCommandSlash(bot))
   await bot.add_cog(WikidiscoveryCommand(bot))

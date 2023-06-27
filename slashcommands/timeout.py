@@ -40,6 +40,11 @@ class TimeoutCommandSlash(commands.Cog):
         embed = discord.Embed(title="Timeout the member", description="The user you want to timeout is not on this guild or not available.", color=0x3f48cc)
         await interaction.followup.send(embed=embed)
         return        
+      # Check if the bot's role is lower than the member's role
+      if ctx.guild.me.top_role < member.top_role:
+        embed = discord.Embed(title="Timeout the member", description="Can't use this command for the member has higher role than the bot role.", color=0x3f48cc)
+        await ctx.reply(embed=embed, mention_author=False)
+        return          
       # Timeout the member
       try:
         await member.timeout(datetime.timedelta(seconds=time), reason=reason)

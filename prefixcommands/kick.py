@@ -34,6 +34,11 @@ class KickCommand(commands.Cog):
           embed = discord.Embed(title="Kick the member", description="The user you want to kick is not on this guild or not available.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author = False)
           return           
+        # Check if the bot's role is lower than the member's role
+        if ctx.guild.me.top_role < member.top_role:
+          embed = discord.Embed(title="Kick the member", description="Can't use this command for the member has higher role than the bot role.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author=False)
+          return            
         # This message will sent if the `reason` value is missing
         if reason is None:
           embed = discord.Embed(title="Kick the member", description="Please give a reason why they need to kick.", color=0x3f48cc)

@@ -29,6 +29,11 @@ class BanCommandSlash(commands.Cog):
         embed = discord.Embed(title="Ban the member", description="You can't ban yourself.", color=0x3f48cc)
         await interaction.followup.send(embed=embed)
         return
+      # Check if the bot's role is lower than the member's role
+      if ctx.guild.me.top_role < member.top_role:
+        embed = discord.Embed(title="Ban the member", description="Can't use this command for the member has higher role than the bot role.", color=0x3f48cc)
+        await ctx.reply(embed=embed, mention_author=False)
+        return          
       # Check if the member is in the guild
       if member not in ctx.guild.members:
         embed = discord.Embed(title="Ban the member", description="The user you want to ban is not on this guild or not available.", color=0x3f48cc)

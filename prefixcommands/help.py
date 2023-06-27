@@ -19,13 +19,11 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
               discord.SelectOption(label="kick", description="Help with `kick` command", emoji="👟"),
               discord.SelectOption(label="leaderboard", description="Help with `leaderboard` command", emoji="🥇"),
-              discord.SelectOption(label="mute", description="Help with `mute` command", emoji="🔈"),                
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
               discord.SelectOption(label="resetpoints", description="Help with `resetpoints` command", emoji="🥇"),
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
-              discord.SelectOption(label="unmute", description="Help with `unmute` command", emoji="🔈"),      
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
               discord.SelectOption(label="wikidiscovery", description="Help with `wikidiscovery` command", emoji="🌎")
           ]
@@ -54,9 +52,6 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "leaderboard":
               embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)
-            elif interaction.data["values"][0] == "mute":
-              embed = discord.Embed(title="Help with `mute` command", description="**This command will mute the specific member on the specific server.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!mute [user] [time]` or `/mute [user] [time]` to mute someone. The minimum of time for the time is more than 60 seconds.", inline=False)
             elif interaction.data["values"][0] == "pfp":
               embed = discord.Embed(title="Help with `pfp` command", description="**This command will show the members image profile.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!image` or `/image` to show your profile picture. If you want to see profile picture from another member, use `tk!pfp @user` or `/pfp @user`.", inline=False)
@@ -71,10 +66,7 @@ class HelpCommand(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!serverinfo` or `/serverinfo` to show the information about the current server you're in.", inline=False)
             elif interaction.data["values"][0] == "timeout":
               embed = discord.Embed(title="Help with `timeout` command", description="**This command will timeout the specific member on the specific server.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!timeout [user] [time] [reason]` or `/timeout [user] [time] [reason]` to timeout someone. The minimum of time for the timeout is more than 60 seconds.", inline=False)
-            elif interaction.data["values"][0] == "unmute":
-              embed = discord.Embed(title="Help with `unmute` command", description="**This command will unmute the specific member on the specific server.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!unmute [user]` or `/unmute [user]` to unmute someone.", inline=False)              
+              embed.add_field(name="How to use it", value="Type `tk!timeout [user] [time] [reason]` or `/timeout [user] [time] [reason]` to timeout someone. The minimum of time for the timeout is more than 60 seconds.", inline=False)        
             elif interaction.data["values"][0] == "userinfo":
               embed = discord.Embed(title="Help with `userinfo` command", description="**This command will show the information about members include date joined Discord, date joined the server and also user ID.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!userinfo` or `/userinfo` to show the information about you. If you want to see user information from another members, type `tk!userinfo @user` or `/userinfo @user`.", inline=False)
@@ -147,13 +139,11 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
               discord.SelectOption(label="kick", description="Help with `kick` command", emoji="👟"),
               discord.SelectOption(label="leaderboard", description="Help with `leaderboard` command", emoji="🥇"),        
-              discord.SelectOption(label="mute", description="Help with `mute` command", emoji="🔈"),      
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
               discord.SelectOption(label="resetpoints", description="Help with `resetpoints` command", emoji="🥇"),              
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
-              discord.SelectOption(label="unmute", description="Help with `unmute` command", emoji="🔈"),      
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
               discord.SelectOption(label="wikidiscovery", description="Help with `wikidiscovery` command", emoji="🌎")
           ]
@@ -182,9 +172,6 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "leaderboard":
               embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
-            elif interaction.data["values"][0] == "mute":
-              embed = discord.Embed(title="Help with `mute` command", description="**This command will mute the specific member on the specific server.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!mute [user] [time]` or `/mute [user] [time]` to mute someone. The minimum of time for the time is more than 60 seconds.", inline=False)
             elif interaction.data["values"][0] == "pfp":
               embed = discord.Embed(title="Help with `pfp` command", description="**This command will show the members image profile.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!image` or `/image` to show your profile picture. If you want to see profile picture from another member, use `tk!pfp @user` or `/pfp @user`.", inline=False)
@@ -200,9 +187,6 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "timeout":
               embed = discord.Embed(title="Help with `timeout` command", description="**This command will timeout the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!timeout [user] [time] [reason]` or `/timeout [user] [time] [reason]` to timeout someone. The minimum of time for the timeout is more than 60 seconds.", inline=False)
-            elif interaction.data["values"][0] == "unmute":
-              embed = discord.Embed(title="Help with `unmute` command", description="**This command will unmute the specific member on the specific server.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!unmute [user]` or `/unmute [user]` to unmute someone.", inline=False)              
             elif interaction.data["values"][0] == "userinfo":
               embed = discord.Embed(title="Help with `userinfo` command", description="**This command will show the information about members include date joined Discord, date joined the server and also user ID.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!userinfo` or `/userinfo` to show the information about you. If you want to see user information from another members, type `tk!userinfo @user` or `/userinfo @user`.", inline=False)
