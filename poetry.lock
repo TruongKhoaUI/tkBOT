@@ -185,18 +185,18 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "discord"
-version = "2.3.0"
+version = "2.3.1"
 description = "A mirror package for discord.py. Please install that instead."
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-"discord.py" = ">=2.3.0"
+"discord.py" = ">=2.3.1"
 
 [[package]]
 name = "discord.py"
-version = "2.3.0"
+version = "2.3.1"
 description = "A Python wrapper for the Discord API"
 category = "main"
 optional = false
@@ -655,7 +655,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "525e41796786b9124307a54e4505e984d9eaa332e9e14289e3c44e26711a161b"
+content-hash = "960634fc3ab316605e72481f8c8fad7ebe5bd7929d00f85f316c11fc60e3e1ab"
 
 [metadata.files]
 aiohttp = []
