@@ -26,12 +26,13 @@ class BotinfoCommandSlash(commands.Cog):
     total_channels = sum(len(guild.channels) for guild in self.bot.guilds)
     total_members = sum(len(guild.members) for guild in self.bot.guilds)
     # Show uptime usage
+    boot_time = psutil.boot_time()
     current_time = datetime.datetime.now()
-    uptime = current_time - start_time
-    uptime_datetime = datetime.datetime.fromtimestamp(uptime.total_seconds())
-    uptime_string = uptime_datetime.strftime("%d days %H hours %M minutes %S seconds")
-    if uptime_string.startswith("01"):
-      uptime_string = "00" + uptime_string[2:]
+    uptime = current_time - datetime.datetime.fromtimestamp(boot_time)          
+    days = uptime.days
+    hours, remainder = divmod(uptime.seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)            
+    uptime_string = f"{days} days {hours} hours {minutes} minutes {seconds} seconds"
     # Show bot status in embed message
     member = self.bot.get_user(1098583942145257534)
     embed = discord.Embed(color=0x3f48cc)
