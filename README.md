@@ -46,29 +46,5 @@
 - Note that you have to give Administrator permissions for the integration to let the bot can use the moderation commands.
 - View your top 10 leaderboard with a type by using `leaderboard` or `leaderboard [page]` to see another page.
 
-## Library credits
-<table>
-  <tr>
-    <th>Library name</th>
-    <th>Library author links</th>
-  </tr>
-  <tr>
-    <td>
-
-- wikipedia
-- discord.py
-- psutil
-- pillow
-
-  </td><td>
-
-* https://github.com/goldsmith/Wikipedia
-* https://github.com/Rapptz/discord.py
-* https://github.com/giampaolo/psutil
-* https://python-pillow.org/
-
-  </td>
-</tr></table>
-
 ## Bugs and problem
 - Currently, this bot is in experimental state and some commands may not work correctly, if you have any problems with this bot, please contact me on [Discord](https://discord.com/users/1021023635814760458)
