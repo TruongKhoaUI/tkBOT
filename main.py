@@ -1,14 +1,11 @@
 import datetime
 import discord
 import os
-import psutil
 import logging
-import tkinter as tk
 from keep_alive import keep_alive
 from discord.ext import commands
 
 # Import the keep_alive module if you want to keep the bot online 24/7
-# from keep_alive import keep_alive
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -126,48 +123,6 @@ async def on_ready():
   print()
   print("----------------------------------------")
   print()
-  # Launch Tkinter window
-  launch_window()
-
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-# Launch Tkinter window
-def launch_window():
-  def program():
-    print()
-  def button_about():
-    memory_used = psutil.Process().memory_info().rss / (512 * 512)
-    memory_used_mb = str(memory_used)[:3] + "MB"
-    program()
-    window = tk.Tk()
-    window.title("About tkBOT")
-    window.geometry("300x200")
-    window.resizable(False, False)
-    label1 = tk.Label(window, text="      About tkBOT", font=("Arial", 10, "bold"), anchor="w")
-    label1.pack(pady=20, anchor="w")
-    label2 = tk.Label(window, text=f"      Version: 1.9.6.20230626\n      Commands in total: 1\n      RAM Usage: {memory_used_mb}/512MB", font=("Arial", 10), anchor="w", justify="left")
-    label2.pack(anchor="w")    
-  def on_closing():
-    pass    
-  window = tk.Tk()
-  window.protocol("WM_DELETE_WINDOW", on_closing)
-  # Function
-  start_time = datetime.datetime.utcnow()
-  date_format = "%d %B %Y, %I:%M %p"
-  formatted_date = start_time.strftime(date_format)
-  session_id = bot._connection._get_websocket(shard_id=None).session_id
-  # Window
-  window.title("Discord Bot Connection")
-  window.geometry("400x200")
-  window.resizable(False, False)
-  label1 = tk.Label(window, text="      Discord Bot is running.", font=("Arial", 10, "bold"), anchor="w")
-  label1.pack(pady=20, anchor="w")
-  label2 = tk.Label(window, text=f"      Connect as: {bot.user}\n      Last connected at: {formatted_date}\n      Session ID: {session_id}", font=("Arial", 10), anchor="w", justify="left")
-  label2.pack(anchor="w")
-  program()
-  button1 = tk.Button(window, text="About bot", command=button_about)
-  button1.pack(side="left", padx=20, pady=20) 
-  window.mainloop()
 
 # Ignore the command error
 @bot.event
