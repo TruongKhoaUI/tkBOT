@@ -117,14 +117,6 @@ async def on_ready():
   print("----------------------------------------")
   print()
 
-# Ignore the command error
-@bot.event
-async def on_command_error(ctx, error):
-  async with ctx.typing():
-    if isinstance(error, commands.CommandNotFound):
-      embed = discord.Embed(title="Command not found", description="The command you provided is not available or not registered.", color=0x3f48cc)
-      await ctx.reply(embed=embed, mention_author=False)
-
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # Keep bot online 24/7 and token included

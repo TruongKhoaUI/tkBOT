@@ -91,6 +91,10 @@ class LeaderboardCommandSlash(commands.Cog):
           if not member.bot:
             embed.add_field(name=f"{rank_counter}. {member}", value=f"{user[1]} points\n", inline=False)
             rank_counter += 1
+          else:
+            del points[str(ctx.guild.id)][str(user_id)]
+            with open('jsondata/level.json', 'w') as f:
+              json.dump(points, f)            
       else:
         last_page = ceil(len(sorted_points) / per_page)
         embed.description = f'No more users to show.\nThe last page of the leaderboard is {last_page}.'

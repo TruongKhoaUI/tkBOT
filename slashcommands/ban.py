@@ -50,7 +50,7 @@ class BanCommandSlash(commands.Cog):
       except discord.errors.HTTPException as e:
         await ctx.guild.ban(member, reason=reason)
         embed = discord.Embed(title="Ban the member", description=f"**{member}** is banned because of **{reason}**.", color=0x3f48cc)
-        await interaction.followup.send(embed=embed)
+        await interaction.followup.send(embed=embed)           
     # If this command run in DM, it will not work
     else:
       embed = discord.Embed(title="Ban the member", description="You can't use this command when you are in DM.", color=0x3f48cc)

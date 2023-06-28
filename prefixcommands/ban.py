@@ -56,6 +56,9 @@ class BanCommand(commands.Cog):
           await ctx.guild.ban(member, reason=reason)
           embed = discord.Embed(title="Ban the member", description=f"**{member}** is banned because of **{reason}**.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author = False)
+        except discord.ext.commands.errors.MemberNotFound:
+          embed = discord.Embed(title="Ban the member", description="The user you want to ban is not on this guild or not available.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author = False)             
       # If this command run in DM, it will not work
       else:
         embed = discord.Embed(title="Error", description="You can't use this command when you are in DM.", color=0x3f48cc)

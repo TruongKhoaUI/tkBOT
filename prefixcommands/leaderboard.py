@@ -71,7 +71,7 @@ class LeaderboardCommand(commands.Cog):
           userrank = userrank_list[0] + 1
         else:
           userrank = None
-        embed = discord.Embed(title=f'Leaderboard｜Page {page}', description=f"- 🥇｜Your current points: {userpoints}\n- 🫂｜Your current rank: {userrank}", color=0x3f48cc)    
+        embed = discord.Embed(title=f'Leaderboard｜Page {page}', description=f"- 🥇｜Your current points: {userpoints}\n- 🫂｜Your current rank: {userrank}", color=0x3f48cc)
         if page_points:
           rank_counter = start_index + 1
           for i, user in enumerate(page_points):
@@ -88,6 +88,10 @@ class LeaderboardCommand(commands.Cog):
             if not member.bot:
               embed.add_field(name=f"{rank_counter}. {member}", value=f"{user[1]} points\n", inline=False)
               rank_counter += 1
+            else:
+              del points[str(ctx.guild.id)][str(user_id)]
+              with open('jsondata/level.json', 'w') as f:
+                json.dump(points, f)
         else:
           last_page = ceil(len(sorted_points) / per_page)
           embed.description = f'No more users to show.\nThe last page of the leaderboard is {last_page}.'
