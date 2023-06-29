@@ -33,6 +33,7 @@
 * kick
 * resetpoints
 * timeout
+* warn
 
   </td>
 </tr></table>
