@@ -7,6 +7,7 @@ class BanCommandSlash(commands.Cog):
     self.bot = bot
 
   @app_commands.command(name="ban", description="Ban a user.") # Ban members
+  @app_commands.default_permissions(ban_members=True)
   @app_commands.describe(member="Select a specific member.")
   @app_commands.describe(reason="Enter a reason why they need to ban.")
   async def ban(self, interaction: discord.Interaction, member: discord.User, reason: str):

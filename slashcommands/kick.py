@@ -7,6 +7,7 @@ class KickCommandSlash(commands.Cog):
     self.bot = bot
 
   @app_commands.command(name="kick", description="Kick a user.") # Kick members
+  @app_commands.default_permissions(kick_members=True)
   @app_commands.describe(member="Select a specific member.")
   @app_commands.describe(reason="Enter a reason why they need to kick.")
   async def kick(self, interaction: discord.Interaction, member:discord.User, reason:str):

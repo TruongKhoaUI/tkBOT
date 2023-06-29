@@ -25,6 +25,7 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
+              discord.SelectOption(label="warn", description="Help with `warn` command", emoji="⚠️"),
               discord.SelectOption(label="wikidiscovery", description="Help with `wikidiscovery` command", emoji="🌎")
           ]
           select = discord.ui.Select(placeholder='Select a command to get help', options=options)
@@ -70,6 +71,9 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "userinfo":
               embed = discord.Embed(title="Help with `userinfo` command", description="**This command will show the information about members include date joined Discord, date joined the server and also user ID.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!userinfo` or `/userinfo` to show the information about you. If you want to see user information from another members, type `tk!userinfo @user` or `/userinfo @user`.", inline=False)
+            elif interaction.data["values"][0] == "warn":
+              embed = discord.Embed(title="Help with `warn` command", description="**This command will warn the specific member on the specific server.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!warn [user] [reason]` `/warn [user] [reason]` to warn someone. They will be banned if they reached 5 warns and the warning count will be removed from the bot data.", inline=False)                
             elif interaction.data["values"][0] == "wikidiscovery":
               embed = discord.Embed(title="Help with `wikidiscovery` command", description="**This command will search the information you provived in Wikipedia.**", color=0x3f48cc)
               embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)                
@@ -145,6 +149,7 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
+              discord.SelectOption(label="warn", description="Help with `warn` command", emoji="⚠️"),
               discord.SelectOption(label="wikidiscovery", description="Help with `wikidiscovery` command", emoji="🌎")
           ]
           select = discord.ui.Select(placeholder='Select a command to get help', options=options)
@@ -187,6 +192,9 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "timeout":
               embed = discord.Embed(title="Help with `timeout` command", description="**This command will timeout the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!timeout [user] [time] [reason]` or `/timeout [user] [time] [reason]` to timeout someone. The minimum of time for the timeout is more than 60 seconds.", inline=False)
+            elif interaction.data["values"][0] == "warn":
+              embed = discord.Embed(title="Help with `warn` command", description="**This command will warn the specific member on the specific server.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!warn [user] [reason]` `/warn [user] [reason]` to warn someone. They will be banned if they reached 5 warns and the warning count will be removed from the bot data.", inline=False)              
             elif interaction.data["values"][0] == "userinfo":
               embed = discord.Embed(title="Help with `userinfo` command", description="**This command will show the information about members include date joined Discord, date joined the server and also user ID.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!userinfo` or `/userinfo` to show the information about you. If you want to see user information from another members, type `tk!userinfo @user` or `/userinfo @user`.", inline=False)

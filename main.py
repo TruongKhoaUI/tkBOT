@@ -5,8 +5,6 @@ import logging
 from keep_alive import keep_alive
 from discord.ext import commands
 
-# Import the keep_alive module if you want to keep the bot online 24/7
-
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # Import commands
@@ -36,6 +34,8 @@ from prefixcommands.timeout import TimeoutCommand
 from slashcommands.timeout import TimeoutCommandSlash
 from prefixcommands.userinfo import UserinfoCommand
 from slashcommands.userinfo import UserinfoCommandSlash
+from prefixcommands.warn import WarnCommand
+from slashcommands.warn import WarnCommandSlash
 from prefixcommands.wikidiscovery import WikidiscoveryCommand
 from slashcommands.wikidiscovery import WikidiscoveryCommandSlash
 # Import chatlog code
@@ -89,6 +89,8 @@ async def on_ready():
   await bot.add_cog(TimeoutCommandSlash(bot))
   await bot.add_cog(UserinfoCommand(bot))
   await bot.add_cog(UserinfoCommandSlash(bot))
+  await bot.add_cog(WarnCommand(bot))
+  await bot.add_cog(WarnCommandSlash(bot))
   await bot.add_cog(WikidiscoveryCommand(bot))
   await bot.add_cog(WikidiscoveryCommandSlash(bot))
   # Import chatlog code

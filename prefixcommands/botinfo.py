@@ -19,7 +19,13 @@ class BotinfoCommand(commands.Cog):
       gitproject = Button(label = "GitHub Repo", url = "https://github.com/TruongKhoaUI/tkBOT", emoji = "📂")      
       # Bot storage
       memory_used = psutil.Process().memory_info().rss / (512 * 512)
-      memory_used_mb = str(memory_used)[:3] + "MB"
+      memory_used_mb = str(memory_used)[:5] + "MB"
+      disk_usage = psutil.disk_usage('/home/runner/tkBOT')
+      total_disk_space = disk_usage.total / (1024 * 1024)
+      used_disk_space = disk_usage.used / (1024 * 1024)
+      used_disk_space_mb = str(used_disk_space)[:5]
+      free_disk_space = disk_usage.free / (1024 * 1024)
+      percent_used = disk_usage.percent
       # Bot stats
       total_servers = len(self.bot.guilds)
       total_channels = sum(len(guild.channels) for guild in self.bot.guilds)
@@ -40,7 +46,7 @@ class BotinfoCommand(commands.Cog):
       # About bot specifications
       embed.add_field(name='**Bot specifications**', value=f'- 🤖｜Bot Version: 1.9.6.20230626\n- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n- ⌚｜Uptime: {uptime_string}', inline=False)
       embed.add_field(name='**Stats**', value=f"- 🏠｜Servers: {total_servers}\n- 📝｜Channels: {total_channels}\n- 👥｜Members: {total_members}", inline=False)
-      embed.add_field(name='**Hardware info**', value=f'- 💻｜CPU Usage: {psutil.cpu_percent()}%\n- 📝｜RAM Usage: {memory_used_mb}/512MB', inline=False)
+      embed.add_field(name='**Hardware info**', value=f'- 💻｜CPU Usage: {psutil.cpu_percent()}%\n- 📝｜RAM Usage: {memory_used_mb}/512MB\n- 💽｜Disk Usage: {used_disk_space_mb}MB/1024MB', inline=False)
       view = View()
       view.add_item(addserver)
       view.add_item(support)

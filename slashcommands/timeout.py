@@ -1,12 +1,15 @@
 import discord
 import datetime
+import asyncio
 from discord.ext import commands
 from discord import app_commands
+
 class TimeoutCommandSlash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
   @app_commands.command(name="timeout", description="Timeout a member.") # Timeout members
+  @app_commands.default_permissions(manage_messages=True)
   @app_commands.describe(member="Select a specific member.")
   @app_commands.describe(time="Enter a time.")
   @app_commands.describe(reason="Enter a reason why they need to timeout.")
@@ -56,7 +59,7 @@ class TimeoutCommandSlash(commands.Cog):
       except discord.errors.HTTPException as e:
         await member.timeout(datetime.timedelta(seconds=time), reason=reason)
         embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
-        await interaction.followup.send(embed=embed)
+        await interaction.followup.send(embed=embed)     
     # If this command run in DM, it will not work
     else:
       embed = discord.Embed(title="Timeout the member", description="You can't use this command when you are in DM.", color=0x3f48cc)
