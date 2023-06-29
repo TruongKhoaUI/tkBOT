@@ -138,3 +138,6 @@
 
 ----- Version 1.9.6.20230626 -----
 - Added the defer function for let the bot thinking if the slash command run too slow.
+
+----- Version 1.9.8.20230629 -----
+- Added "warn" command to warn the member.
