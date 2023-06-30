@@ -119,6 +119,11 @@ async def on_ready():
   print("----------------------------------------")
   print()
 
+@bot.event
+async def on_command_error(ctx, error):
+  if isinstance(error, commands.CommandOnCooldown):
+    await ctx.reply(f'Command is on cooldown. Try again in {error.retry_after:.2f}s.', mention_author = False, delete_after=5)
+
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # Keep bot online 24/7 and token included

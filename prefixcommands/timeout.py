@@ -57,22 +57,14 @@ class TimeoutCommand(commands.Cog):
           return
         # Timeout the member
         try:
-          await member.timeout(datetime.timedelta(seconds=time), reason=reason)
           # Send the message to the user
           message = f"You have been timed out from **{ctx.guild.name}** for **{time} seconds** because of **{reason}**."
           await member.send(message)
-          embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)
-        except discord.errors.HTTPException as e:
-          await member.timeout(datetime.timedelta(seconds=time), reason=reason)
-          embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)
-        except discord.ext.commands.errors.MemberNotFound:
-          embed = discord.Embed(title="Timeout the member", description="The user you want to timeout is not on this guild or not available.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)
         except discord.Forbidden:
-          embed = discord.Embed(title="Timeout the member", description="This command is missing permissions.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)
+          pass
+        await member.timeout(datetime.timedelta(seconds=time), reason=reason)
+        embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
+        await ctx.reply(embed=embed, mention_author = False)          
       # If this command run in DM, it will not work
       else:
         embed = discord.Embed(title="Timeout the member", description="You can't use this command when you are in DM.", color=0x3f48cc)

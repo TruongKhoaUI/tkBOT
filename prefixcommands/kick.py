@@ -46,19 +46,14 @@ class KickCommand(commands.Cog):
           return          
         # Kick the member
         try:
-          await ctx.guild.kick(member, reason=reason)
           # Send the message to the user
           message = f"You have been kicked from **{ctx.guild.name}** because of **{reason}**."
           await member.send(message)
-          embed = discord.Embed(title="Kick the member", description=f"**{member}** is kicked because of **{reason}**.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)
-        except discord.errors.HTTPException as e:
-          await ctx.guild.kick(member, reason=reason)
-          embed = discord.Embed(title="Kick the member", description=f"**{member}** is kicked because of **{reason}**.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)
-        except discord.ext.commands.errors.MemberNotFound:
-          embed = discord.Embed(title="Kick the member", description="The user you want to kick is not on this guild or not available.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author = False)             
+        except discord.Forbidden:
+          pass
+        await ctx.guild.kick(member, reason=reason)
+        embed = discord.Embed(title="Kick the member", description=f"**{member}** is kicked because of **{reason}**.", color=0x3f48cc)
+        await ctx.reply(embed=embed, mention_author = False)      
       # If this command run in DM, it will not work
       else:
         embed = discord.Embed(title="Kick the member", description="You can't use this command when you are in DM.", color=0x3f48cc)

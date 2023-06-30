@@ -17,7 +17,7 @@ class TimeoutCommandSlash(commands.Cog):
     ctx = interaction
     await interaction.response.defer(ephemeral = False)
     if ctx.guild:
-      guild = ctx.guild
+      guild = ctx.guild    
       # If the user don't have administrator permissions, they can't use the command
       if not ctx.user.guild_permissions.manage_messages:
         embed = discord.Embed(title="Timeout the member", description="You don't have permission to use this command.", color=0x3f48cc)
@@ -50,16 +50,14 @@ class TimeoutCommandSlash(commands.Cog):
         return          
       # Timeout the member
       try:
-        await member.timeout(datetime.timedelta(seconds=time), reason=reason)
         # Send the message to the user
         message = f"You have been timed out from **{ctx.guild.name}** for **{time} seconds** because of **{reason}**."
         await member.send(message)
-        embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
-        await interaction.followup.send(embed=embed)
-      except discord.errors.HTTPException as e:
-        await member.timeout(datetime.timedelta(seconds=time), reason=reason)
-        embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
-        await interaction.followup.send(embed=embed)     
+      except discord.Forbidden:
+        pass
+      await member.timeout(datetime.timedelta(seconds=time), reason=reason)
+      embed = discord.Embed(title="Timeout the member", description=f"**{member}** is timed out for **{time} seconds** because of **{reason}**.", color=0x3f48cc)
+      await interaction.followup.send(embed=embed)          
     # If this command run in DM, it will not work
     else:
       embed = discord.Embed(title="Timeout the member", description="You can't use this command when you are in DM.", color=0x3f48cc)
