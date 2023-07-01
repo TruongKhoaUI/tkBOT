@@ -22,11 +22,8 @@ class BotinfoCommandSlash(commands.Cog):
     memory_used = psutil.Process().memory_info().rss / (512 * 512)
     memory_used_mb = str(memory_used)[:5] + "MB"
     disk_usage = psutil.disk_usage('/home/runner/tkBOT')
-    total_disk_space = disk_usage.total / (1024 * 1024)
     used_disk_space = disk_usage.used / (1024 * 1024)
     used_disk_space_mb = str(used_disk_space)[:5]
-    free_disk_space = disk_usage.free / (1024 * 1024)
-    percent_used = disk_usage.percent
     # Bot stats
     total_servers = len(self.bot.guilds)
     total_channels = sum(len(guild.channels) for guild in self.bot.guilds)

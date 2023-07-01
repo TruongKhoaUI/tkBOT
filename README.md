@@ -2,7 +2,8 @@
 
 ## About this Bot
 - Bot with utility moderation commands and random stuff commands.
-- Built-in Discord.py version 2.3.0 with PIP version 21. 
+- Built-in Discord.py version 2.3.0 with PIP version 21.
+- Do not make a copy or stole my bot or any information without my permission.
 - This bot is working Replit and hosted using UpTimeRobot. You can find my project [here](https://replit.com/@truongkhoaui/tkBOT). Or you can view my GitHub repositry [here](https://github.com/TruongKhoaUI/tkBOT)
 - Interested in my bot? Then you can add me [here](https://discord.com/api/oauth2/authorize?client_id=1098583942145257534&permissions=8&scope=applications.commands%20bot).
 
@@ -45,5 +46,3 @@
 - Note that you have to give Administrator permissions for the integration to let the bot can use the moderation commands.
 - View your top 10 leaderboard with a type by using `leaderboard` or `leaderboard [page]` to see another page.
 
-## Bugs and problem
-- Currently, this bot is in experimental state and some commands may not work correctly, if you have any problems with this bot, please contact me on [Discord](https://discord.com/users/1021023635814760458)

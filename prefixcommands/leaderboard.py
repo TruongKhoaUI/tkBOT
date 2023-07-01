@@ -1,6 +1,6 @@
 import discord
 import json
-from discord import User, NotFound
+import os
 from discord.ext import commands
 from datetime import datetime, timedelta
 from math import ceil
@@ -14,7 +14,7 @@ class LeaderboardCommand(commands.Cog):
 
   @commands.Cog.listener()
   async def on_ready(self):
-    with open('jsondata/level.json', 'r') as f:
+    with open(os.getenv('leaderboard_directory'), 'r') as f:
       points = json.load(f)
     for guild in self.bot.guilds:
       if str(guild.id) not in points:
@@ -22,7 +22,7 @@ class LeaderboardCommand(commands.Cog):
       for member in guild.members:
         if str(member.id) not in points[str(guild.id)]:
           points[str(guild.id)][str(member.id)] = 0
-    with open('jsondata/level.json', 'w') as f:
+    with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
       
   @commands.Cog.listener()
@@ -38,7 +38,7 @@ class LeaderboardCommand(commands.Cog):
     # Check if the message author is the bot
     if message.author == self.bot.user:
       return
-    with open('jsondata/level.json', 'r') as f:
+    with open(os.getenv('leaderboard_directory'), 'r') as f:
       points = json.load(f)
     guild_id = str(message.guild.id)
     if guild_id not in points:
@@ -50,14 +50,14 @@ class LeaderboardCommand(commands.Cog):
     if author_id not in points[guild_id]:
       points[guild_id][author_id] = 0
     points[guild_id][author_id] += 3
-    with open('jsondata/level.json', 'w') as f:
+    with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
   
   @commands.command()
   async def leaderboard(self, ctx, page: int = 1):
     async with ctx.typing():
       if ctx.guild:
-        with open('jsondata/level.json', 'r') as f:
+        with open(os.getenv('leaderboard_directory'), 'r') as f:
           points = json.load(f)
         server_points = points.get(str(ctx.guild.id), {})
         sorted_points = sorted(server_points.items(), key=lambda x: x[1], reverse=True)
@@ -83,7 +83,7 @@ class LeaderboardCommand(commands.Cog):
                 member = await self.bot.fetch_user(user_id)
               except discord.errors.NotFound:
                 del points[str(ctx.guild.id)][str(user_id)]
-                with open('jsondata/level.json', 'w') as f:
+                with open(os.getenv('leaderboard_directory'), 'w') as f:
                   json.dump(points, f)
                 continue
             if not member.bot:
@@ -91,7 +91,7 @@ class LeaderboardCommand(commands.Cog):
               rank_counter += 1
             else:
               del points[str(ctx.guild.id)][str(user_id)]
-              with open('jsondata/level.json', 'w') as f:
+              with open(os.getenv('leaderboard_directory'), 'w') as f:
                 json.dump(points, f)
         else:
           last_page = ceil(len(sorted_points) / per_page)
