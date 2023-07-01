@@ -81,7 +81,7 @@ class HelpCommandSlash(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)
             await interaction.response.edit_message(content="", embed=embed, view=None)
           select.callback = callback
-          embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
+          embed = discord.Embed(title="tkBOT's Help", description="Welcome! Choose one of these options to get started with the specific commands.", color=0x3f48cc)
           await interaction.followup.send(embed=embed, view=view)          
         else:
           # Select menu
@@ -133,7 +133,7 @@ class HelpCommandSlash(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)
             await interaction.response.edit_message(content="", embed=embed, view=None)
           select.callback = callback
-          embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
+          embed = discord.Embed(title="tkBOT's Help", description="Welcome! Choose one of these options to get started with the specific commands.", color=0x3f48cc)
           await interaction.followup.send(embed=embed, view=view)
       else:
           # Select menu
@@ -205,7 +205,7 @@ class HelpCommandSlash(commands.Cog):
               embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)
             await interaction.response.edit_message(content="", embed=embed, view=None)
           select.callback = callback
-          embed = discord.Embed(title="tkBOT's Help", description="Select one of these commands to get help.", color=0x3f48cc)
+          embed = discord.Embed(title="tkBOT's Help", description="Welcome! Choose one of these options to get started with the specific commands.", color=0x3f48cc)
           await interaction.followup.send(embed=embed, view=view)
 
 def setup(bot):

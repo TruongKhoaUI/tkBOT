@@ -47,7 +47,7 @@ logging.getLogger("discord.client").setLevel(logging.ERROR)
 @bot.event  # Connected status
 async def on_ready():
   game = discord.Game(name='tk!help and /help')
-  await bot.change_presence(activity=game, status=discord.Status.dnd)
+  await bot.change_presence(activity=game, status=discord.Status.online)
   # Import commands
   await bot.add_cog(BanCommand(bot)); await bot.add_cog(BanCommandSlash(bot))
   await bot.add_cog(BotinfoCommand(bot));  await bot.add_cog(BotinfoCommandSlash(bot))
