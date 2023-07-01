@@ -14,7 +14,7 @@ class PfpCommand(commands.Cog):
         try:
           member = await self.bot.fetch_user(member)
         # It will show this message when the user ID is invaild
-        except discord.errors.NotFound:
+        except discord.errors.NotFound:          
           embed = discord.Embed(title="Profile Picture", description="Invalid user ID or username.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author = False)
           return

@@ -74,7 +74,8 @@ class LeaderboardCommandSlash(commands.Cog):
         userrank = userrank_list[0] + 1
       else:
         userrank = None
-      embed = discord.Embed(title=f'Leaderboard｜Page {page}', description=f"- 🥇｜Your current points: {userpoints}\n- 🫂｜Your current rank: {userrank}", color=0x3f48cc)      
+      last_page = ceil(len(sorted_points) / per_page)
+      embed = discord.Embed(title=f'Leaderboard｜Page {page} out of {last_page}', description=f"- 🥇｜Your current points: {userpoints}\n- 🫂｜Your current rank: {userrank}", color=0x3f48cc)      
       if page_points:
         rank_counter = start_index + 1
         for i, user in enumerate(page_points):
