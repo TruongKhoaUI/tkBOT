@@ -2,13 +2,15 @@ from flask import Flask, render_template
 from threading import Thread
 import logging
 import sys
+import os
 
 # Disable all texts in keep_alive.py
 logging.getLogger('werkzeug').setLevel(logging.ERROR)
 cli = sys.modules['flask.cli']
 cli.show_server_banner = lambda *x: None
 
-app = Flask('')
+template_dir = os.path.abspath('website')
+app = Flask(__name__, template_folder=template_dir)
 
 # Show the webview
 @app.route('/')
