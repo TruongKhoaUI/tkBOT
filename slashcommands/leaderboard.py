@@ -23,7 +23,7 @@ class LeaderboardCommandSlash(commands.Cog):
       for member in guild.members:
         if str(member.id) not in points[str(guild.id)]:
           points[str(guild.id)][str(member.id)] = 0
-    with open(os.getenv('leaderboard_directory'), 'r') as f:
+    with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
 
   @commands.Cog.listener()
@@ -51,7 +51,7 @@ class LeaderboardCommandSlash(commands.Cog):
     if author_id not in points[guild_id]:
       points[guild_id][author_id] = 0
     points[guild_id][author_id] += 0
-    with open(os.getenv('leaderboard_directory'), 'r') as f:
+    with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
         
   @app_commands.command(name="leaderboard", description="View the leaderboard")
@@ -86,7 +86,7 @@ class LeaderboardCommandSlash(commands.Cog):
               member = await self.bot.fetch_user(user_id)
             except discord.errors.NotFound:
               del points[str(ctx.guild.id)][str(user_id)]
-              with open(os.getenv('leaderboard_directory'), 'r') as f:
+              with open(os.getenv('leaderboard_directory'), 'w') as f:
                 json.dump(points, f)
               continue
           if not member.bot:
