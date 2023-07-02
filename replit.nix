@@ -1,8 +1,5 @@
 { pkgs }: {
   deps = [
-    pkgs.nano
-    pkgs.gnome.gedit
-    pkgs.neofetch
     pkgs.python310Full
     pkgs.replitPackages.prybar-python310
     pkgs.replitPackages.stderred
