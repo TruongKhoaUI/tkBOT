@@ -10,7 +10,7 @@ class BotinfoCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # About this bot with hardware status
+  @commands.command(name="botinfo", description="View information about this bot.") # About this bot with hardware status
   async def botinfo(self, ctx):  
     async with ctx.typing():
       # Buttons

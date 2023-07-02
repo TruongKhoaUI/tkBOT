@@ -6,7 +6,7 @@ class UserinfoCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # View user information
+  @commands.command(name="userinfo", description="View member's information.") # View user information
   async def userinfo(self, ctx, member: Union[discord.Member, discord.User, int] = None):
     async with ctx.typing():
       if isinstance(member, int):

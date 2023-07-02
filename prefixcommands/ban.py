@@ -5,7 +5,7 @@ class BanCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Ban members
+  @commands.command(name="ban", description="Ban a user.") # Ban members
   async def ban(self, ctx, member: discord.Member = None, *, reason=None):
     async with ctx.typing():
       if ctx.guild:

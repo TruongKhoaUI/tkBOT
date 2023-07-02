@@ -6,7 +6,7 @@ class TimeoutCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Timeout members
+  @commands.command(name="timeout", description="Timeout a user.") # Timeout members
   async def timeout(self, ctx, member: discord.Member = None, time: int = None, *, reason: str = None):
     async with ctx.typing():
       if ctx.guild:

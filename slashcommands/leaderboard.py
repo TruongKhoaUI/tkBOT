@@ -94,7 +94,7 @@ class LeaderboardCommandSlash(commands.Cog):
             rank_counter += 1
           else:
             del points[str(ctx.guild.id)][str(user_id)]
-            with open(os.getenv('leaderboard_directory'), 'r') as f:
+            with open(os.getenv('leaderboard_directory'), 'w') as f:
               json.dump(points, f)            
       else:
         last_page = ceil(len(sorted_points) / per_page)

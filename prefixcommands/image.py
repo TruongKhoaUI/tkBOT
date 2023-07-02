@@ -6,7 +6,7 @@ class ImageCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command()
+  @commands.command(name="image", description="Generate a image.")
   async def image(self, ctx, *, search=None):
     async with ctx.typing():
       if search is None:

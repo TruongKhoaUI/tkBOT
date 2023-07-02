@@ -5,7 +5,7 @@ class HelpCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Help with commands
+  @commands.command(name="help", description="Help with commands") # Help with commands
   async def help(self, ctx):
     async with ctx.typing():
       if ctx.guild:

@@ -5,7 +5,7 @@ class ServerinfoCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # View server information
+  @commands.command(name="serverinfo", description="View the current server you're in.") # View server information
   async def serverinfo(self, ctx):
     async with ctx.typing():
       if ctx.guild:

@@ -6,7 +6,7 @@ class ResetpointsCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command()
+  @commands.command(name="resetpoints", description="Reset points for all members.")
   async def resetpoints(self, ctx):
     async with ctx.typing():
       if ctx.guild:

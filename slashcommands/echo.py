@@ -6,7 +6,7 @@ class EchoCommandSlash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @app_commands.command(name="echo", description="Repeat the message.") # Repeat the message
+  @app_commands.command(name="echo", description="Repeat a message.") # Repeat the message
   @app_commands.describe(message="Enter a keyword.")
   async def echo(self, interaction: discord.Interaction, *, message: str):
     await interaction.response.defer(ephemeral = False)

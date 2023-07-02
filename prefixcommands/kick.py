@@ -5,7 +5,7 @@ class KickCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Kick members
+  @commands.command(name="kick", description="Kick a user.") # Kick members
   async def kick(self, ctx, member: discord.Member = None, *, reason=None):
     async with ctx.typing():
       if ctx.guild:

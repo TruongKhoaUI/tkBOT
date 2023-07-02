@@ -53,7 +53,7 @@ class LeaderboardCommand(commands.Cog):
     with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
   
-  @commands.command()
+  @commands.command(name="leaderboard", description="View the leaderboard")
   async def leaderboard(self, ctx, page: int = 1):
     async with ctx.typing():
       if ctx.guild:

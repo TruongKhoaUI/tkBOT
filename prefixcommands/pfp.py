@@ -6,7 +6,7 @@ class PfpCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Show the profile picture
+  @commands.command(name="pfp", description="Show member's avatar.") # Show the profile picture
   async def pfp(self, ctx, member:Union[discord.Member, discord.User, int] = None):
     async with ctx.typing():
       if isinstance(member, int):

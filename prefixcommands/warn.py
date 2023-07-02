@@ -18,7 +18,7 @@ class WarnCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     
-  @commands.command()
+  @commands.command(name="warn", description="Warn a user.")
   async def warn(self, ctx, member: discord.Member = None, *, reason:str = None):
     async with ctx.typing():
       if ctx.guild:

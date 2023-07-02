@@ -5,7 +5,7 @@ class EchoCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command()
+  @commands.command(name="echo", description="Repeat a message.")
   async def echo(self, ctx, *, message=None):
     async with ctx.typing():
       if message is None:

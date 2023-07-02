@@ -7,7 +7,7 @@ class UserinfoCommandSlash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @app_commands.command(name="userinfo", description="View member's information")
+  @app_commands.command(name="userinfo", description="View member's information.")
   @app_commands.describe(member="Select a specific user.")
   async def userinfo(self, interaction:discord.Interaction, member:discord.User = None):
       ctx = interaction

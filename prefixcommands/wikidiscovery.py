@@ -7,7 +7,7 @@ class WikidiscoveryCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Discorvery in Wikipedia
+  @commands.command(name="wikidiscovery", description="Discorver information from Wikipedia.") # Discorvery in Wikipedia
   async def wikidiscovery(self, ctx, *, search=None):
     async with ctx.typing():
       wikisearch = urllib.parse.quote(search)

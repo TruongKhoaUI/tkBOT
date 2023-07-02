@@ -6,7 +6,7 @@ class PingCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command() # Show the time the bot responds
+  @commands.command(name="ping", description="Show the time the bot responds.") # Show the time the bot responds
   async def ping(self, ctx):      
     async with ctx.typing():
       # Get the Discord API time response
