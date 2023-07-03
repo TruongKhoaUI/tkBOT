@@ -9,21 +9,21 @@ from discord.ext import commands
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # Import commands
-from prefixcommands.ban import BanCommand; from slashcommands.ban import BanCommandSlash
-from prefixcommands.botinfo import BotinfoCommand; from slashcommands.botinfo import BotinfoCommandSlash
-from prefixcommands.echo import EchoCommand; from slashcommands.echo import EchoCommandSlash
-from prefixcommands.help import HelpCommand; from slashcommands.help import HelpCommandSlash
-from prefixcommands.image import ImageCommand; from slashcommands.image import ImageCommandSlash
-from prefixcommands.kick import KickCommand; from slashcommands.kick import KickCommandSlash
-from prefixcommands.leaderboard import LeaderboardCommand; from slashcommands.leaderboard import LeaderboardCommandSlash
-from prefixcommands.pfp import PfpCommand; from slashcommands.pfp import PfpCommandSlash
-from prefixcommands.ping import PingCommand; from slashcommands.ping import PingCommandSlash
-from prefixcommands.resetpoints import ResetpointsCommand; from slashcommands.resetpoints import ResetpointsCommandSlash
-from prefixcommands.serverinfo import ServerinfoCommand; from slashcommands.serverinfo import ServerinfoCommandSlash
-from prefixcommands.timeout import TimeoutCommand; from slashcommands.timeout import TimeoutCommandSlash
-from prefixcommands.userinfo import UserinfoCommand; from slashcommands.userinfo import UserinfoCommandSlash
-from prefixcommands.warn import WarnCommand; from slashcommands.warn import WarnCommandSlash
-from prefixcommands.wikidiscovery import WikidiscoveryCommand; from slashcommands.wikidiscovery import WikidiscoveryCommandSlash
+from commands.prefixcommands.ban import BanCommand; from commands.slashcommands.ban import BanCommandSlash
+from commands.prefixcommands.botinfo import BotinfoCommand; from commands.slashcommands.botinfo import BotinfoCommandSlash
+from commands.prefixcommands.echo import EchoCommand; from commands.slashcommands.echo import EchoCommandSlash
+from commands.prefixcommands.help import HelpCommand; from commands.slashcommands.help import HelpCommandSlash
+from commands.prefixcommands.image import ImageCommand; from commands.slashcommands.image import ImageCommandSlash
+from commands.prefixcommands.kick import KickCommand; from commands.slashcommands.kick import KickCommandSlash
+from commands.prefixcommands.leaderboard import LeaderboardCommand; from commands.slashcommands.leaderboard import LeaderboardCommandSlash
+from commands.prefixcommands.pfp import PfpCommand; from commands.slashcommands.pfp import PfpCommandSlash
+from commands.prefixcommands.ping import PingCommand; from commands.slashcommands.ping import PingCommandSlash
+from commands.prefixcommands.resetpoints import ResetpointsCommand; from commands.slashcommands.resetpoints import ResetpointsCommandSlash
+from commands.prefixcommands.serverinfo import ServerinfoCommand; from commands.slashcommands.serverinfo import ServerinfoCommandSlash
+from commands.prefixcommands.timeout import TimeoutCommand; from commands.slashcommands.timeout import TimeoutCommandSlash
+from commands.prefixcommands.userinfo import UserinfoCommand; from commands.slashcommands.userinfo import UserinfoCommandSlash
+from commands.prefixcommands.warn import WarnCommand; from commands.slashcommands.warn import WarnCommandSlash
+from commands.prefixcommands.wikidiscovery import WikidiscoveryCommand; from commands.slashcommands.wikidiscovery import WikidiscoveryCommandSlash
 # Import chatlog code
 from botlogsmessage.messagesent import Messagesent
 from botlogsmessage.messageedit import Messageedit
