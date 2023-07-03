@@ -1,6 +1,7 @@
 import datetime
 import discord
 import os
+from keep_alive import keep_alive
 from discord.ext import commands
 # Import chatlog code
 from commands.botlogsmessage.messagesent import Messagesent
@@ -103,4 +104,5 @@ async def on_ready():
   await botconnectid.send(embed=embed)
 
 # Keep bot online 24/7 and token included
+keep_alive()
 bot.run(os.getenv('bot_token'))
