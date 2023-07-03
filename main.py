@@ -23,8 +23,8 @@ from commands.prefixcommands.userinfo import UserinfoCommand; from commands.slas
 from commands.prefixcommands.warn import WarnCommand; from commands.slashcommands.warn import WarnCommandSlash
 from commands.prefixcommands.wikidiscovery import WikidiscoveryCommand; from commands.slashcommands.wikidiscovery import WikidiscoveryCommandSlash
 # Import chatlog code
-from botlogsmessage.messagesent import Messagesent; from botlogsmessage.messageedit import Messageedit; from botlogsmessage.messagedelete import Messagedelete
-from botlogsmessage.svjoined import Serverjoin; from botlogsmessage.svkicked import Serverkick
+from commands.botlogsmessage.messagesent import Messagesent; from commands.botlogsmessage.messageedit import Messageedit; from commands.botlogsmessage.messagedelete import Messagedelete
+from commands.botlogsmessage.svjoined import Serverjoin; from commands.botlogsmessage.svkicked import Serverkick
 
 # Bot settings
 # Commands
