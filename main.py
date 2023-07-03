@@ -1,10 +1,6 @@
 import datetime
 import discord
-import logging
-import sys
 import os
-from flask import Flask, render_template
-from threading import Thread
 from discord.ext import commands
 # Import chatlog code
 from commands.botlogsmessage.messagesent import Messagesent
@@ -49,25 +45,6 @@ from commands.slashcommands.wikidiscovery import WikidiscoveryCommandSlash
 # Commands
 bot = commands.Bot(command_prefix='tk!', intents = discord.Intents.all())
 bot.remove_command("help")
-
-# Flask app
-# Disable all texts
-logging.getLogger('werkzeug').setLevel(logging.ERROR)
-cli = sys.modules['flask.cli']
-cli.show_server_banner = lambda *x: None
-# Flask app setup
-template_dir = os.path.abspath('/home/runner/tkBOT')
-app = Flask(__name__, template_folder=template_dir)
-# Flask routes
-@app.route('/')
-def home():
-  return render_template('index.html')
-# Port run
-def run():
-  app.run(host='0.0.0.0', port=8080)
-# Start the thread
-t = Thread(target=run)
-t.start()
 
 # View the custom status of bot and bot connect status
 @bot.event  # Connected status
