@@ -6,14 +6,19 @@ class PollCommand(commands.Cog):
     self.bot = bot
     
   @commands.command(name="poll", description="Create a poll")
-  async def poll(self, ctx, *, poll_input):
+  async def poll(self, ctx, *, poll_input = None):
     async with ctx.typing():
+      if poll_input is None:
+        embed = discord.Embed(title="Poll question", description="The reaction must be required for the question.", color=0x3f48cc)
+        await ctx.reply(embed=embed, mention_author = False)
+        return
       options = poll_input.split("|")
       question = options[0].strip()
       choices = [choice.strip() for choice in options[1:]]
-      if len(choices) is None:
-        embed = discord.Embed(title="Poll question", description="The reaction must be required for the question.", color=0x3f48cc)
+      if len(choices) == 1:
+        embed = discord.Embed(title="Poll question", description="The minimum for the options is 2.", color=0x3f48cc)
         await ctx.reply(embed=embed, mention_author = False)
+        return      
       if len(choices) > 5:
         embed = discord.Embed(title="Poll question", description="You can only provide a maximum of 5 options.", color=0x3f48cc)
         await ctx.reply(embed=embed, mention_author = False)
