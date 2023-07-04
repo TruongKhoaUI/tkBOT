@@ -19,6 +19,7 @@ from commands.prefixcommands.kick import KickCommand
 from commands.prefixcommands.leaderboard import LeaderboardCommand
 from commands.prefixcommands.pfp import PfpCommand
 from commands.prefixcommands.ping import PingCommand
+from commands.prefixcommands.poll import PollCommand
 from commands.prefixcommands.resetpoints import ResetpointsCommand
 from commands.prefixcommands.serverinfo import ServerinfoCommand
 from commands.prefixcommands.timeout import TimeoutCommand
@@ -35,6 +36,7 @@ from commands.slashcommands.kick import KickCommandSlash
 from commands.slashcommands.leaderboard import LeaderboardCommandSlash
 from commands.slashcommands.pfp import PfpCommandSlash
 from commands.slashcommands.ping import PingCommandSlash
+from commands.slashcommands.poll import PollCommandSlash
 from commands.slashcommands.resetpoints import ResetpointsCommandSlash
 from commands.slashcommands.serverinfo import ServerinfoCommandSlash
 from commands.slashcommands.timeout import TimeoutCommandSlash
@@ -67,6 +69,7 @@ async def on_ready():
   await bot.add_cog(LeaderboardCommand(bot))
   await bot.add_cog(PfpCommand(bot))
   await bot.add_cog(PingCommand(bot))
+  await bot.add_cog(PollCommand(bot))  
   await bot.add_cog(ResetpointsCommand(bot))
   await bot.add_cog(ServerinfoCommand(bot))
   await bot.add_cog(TimeoutCommand(bot))
@@ -83,6 +86,7 @@ async def on_ready():
   await bot.add_cog(LeaderboardCommandSlash(bot))
   await bot.add_cog(PfpCommandSlash(bot))
   await bot.add_cog(PingCommandSlash(bot))  
+  await bot.add_cog(PollCommandSlash(bot))
   await bot.add_cog(ResetpointsCommandSlash(bot))  
   await bot.add_cog(ServerinfoCommandSlash(bot))  
   await bot.add_cog(TimeoutCommandSlash(bot))  
