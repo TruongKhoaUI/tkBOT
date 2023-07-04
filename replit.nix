@@ -1,5 +1,6 @@
 { pkgs }: {
   deps = [
+    pkgs.nano
     pkgs.neofetch
     pkgs.cowsay
     pkgs.python310Full
