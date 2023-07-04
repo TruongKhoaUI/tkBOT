@@ -141,3 +141,6 @@
 
 ----- Version 1.9.8.20230629 -----
 - Added "warn" command to warn the member.
+
+----- Version 2.0.0.20230704 -----
+- Added "poll" command.
