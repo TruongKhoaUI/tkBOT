@@ -32,6 +32,8 @@ class LeaderboardCommandSlash(commands.Cog):
       return
     if message.guild is None:  # Check if the message is in a DM
       return
+    if message.webhook_id is not None:  # Exclude webhooks
+      return      
     now = datetime.utcnow()
     if message.author.id in last_message and now - last_message[message.author.id] < cooldown:
       return
