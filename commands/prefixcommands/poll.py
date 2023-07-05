@@ -26,11 +26,11 @@ class PollCommand(commands.Cog):
       emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
       poll_message = ""
       for i, choice in enumerate(choices):
-        poll_message += f"{emojis[i]}: {choice}\n"
+        poll_message += f"{emojis[i]}｜{choice}\n"
       poll_embed = discord.Embed(title="Poll question", description=f"**{question}**", color=0x3f48cc)
       poll_embed.set_author(name=f"{ctx.author}'s poll", icon_url=ctx.author.avatar.url)
       for i, choice in enumerate(choices):
-        poll_embed.add_field(name="", value=f"{emojis[i]}: {choice}", inline=False)
+        poll_embed.add_field(name="", value=f"{emojis[i]}｜{choice}", inline=False)
       poll_message = await ctx.reply(embed=poll_embed, mention_author = False)
       for i in range(len(choices)):
         await poll_message.add_reaction(emojis[i])

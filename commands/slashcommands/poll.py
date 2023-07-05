@@ -19,17 +19,15 @@ class PollCommandSlash(commands.Cog):
     options = [answer1, answer2, answer3, answer4, answer5]
     emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
     poll_message = ""
-    for i, option in enumerate(options):
-      if option:
-        poll_message += f"{emojis[i]}: {option}\n"
+    valid_options = [option for option in options if option is not None]
+    for i, option in enumerate(valid_options):
+      poll_message += f"{emojis[i]}｜{option}\n"
     poll_embed = discord.Embed(title="Poll question", description=f"**{question}**", color=0x3f48cc)
     poll_embed.set_author(name=f"{ctx.user}'s poll", icon_url=ctx.user.avatar.url)
-    for i, option in enumerate(options):
-      if option:
-        poll_embed.add_field(name="", value=f"{emojis[i]}: {option}", inline=False)
+    for i, option in enumerate(valid_options):
+      poll_embed.add_field(name="", value=f"{emojis[i]}｜{option}", inline=False)
     poll_message = await interaction.followup.send(embed=poll_embed)
-    for i in range(len(options)):
-      if options[i]:
+    for i in range(len(valid_options)):
         await poll_message.add_reaction(emojis[i])
 
 def setup(bot):
