@@ -9,7 +9,7 @@ class WikidiscoveryCommandSlash(commands.Cog):
     self.bot = bot
 
   @app_commands.command(name="wikidiscovery", description="Discorver information from Wikipedia.") # Discorvery in Wikipedia
-  @app_commands.describe(search="Enter a keyword.")
+  @app_commands.describe(search="Enter a keyword to request a information.")
   async def wikidiscovery(self, interaction: discord.Interaction, search: str):
     await interaction.response.defer(ephemeral = False)
     wikisearch = urllib.parse.quote(search)

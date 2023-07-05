@@ -8,7 +8,7 @@ class ImageCommandSlash(commands.Cog):
     self.bot = bot
 
   @app_commands.command(name="image", description="Generate a image.") # Search image on the internet
-  @app_commands.describe(search="Enter a keyword.")
+  @app_commands.describe(search="Enter a keyword to search a image.")
   async def image (self, interaction: discord.Interaction, *, search: str):
     await interaction.response.defer(ephemeral=False)
     async with aiohttp.ClientSession() as session:
