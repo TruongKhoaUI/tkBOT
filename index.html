@@ -13,10 +13,10 @@
   div {font-family: Inter, sans-serif; color: rgb(255, 255, 255); font-size: 50px;}
 
   /** Blur window effect **/
-  .blur {backdrop-filter: blur(5px); background-color: rgba(0,0,0,.5); padding: 40px; border-radius: 30px; width: 70%; height: 100%; text-align: center; margin: auto; box-shadow: 0px 0px 20px rgba(0,0,0,.5);}
+  .blur {backdrop-filter: blur(5px); background-color: rgba(0,0,0,.5); padding: 40px; border-radius: 30px; width: 70%; height: 50%; text-align: center; margin: auto; box-shadow: 0px 0px 20px rgba(0,0,0,.5);}
 
   /** Header content **/
-  .container{font-family: Inter, sans-serif; color: #fff; text-align: center; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+  .container{font-family: Inter, sans-serif; color: #fff; text-align: center; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; display: flex; justify-content: center; align-items: center; height: 100vh;}
   header {image-resolution: 100x100; image-rendering: pixelated; text-align: left; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
 
   /** Text, paragraph for the page **/
@@ -32,11 +32,10 @@
 </style>
 <body>
     <div class="container">
-    </div>
-    <div class="blur">
-        <h1>Hello there!</h1>
-        <h2>This bot is using the Flask app to hosting online on Replit.</h2>
+        <div class="blur">
+            <h1>Hello there!</h1>
+            <h2>This bot is using the Flask app to host online on Replit.</h2>
+        </div>
     </div>
 </body>
-</title>
 </html>
