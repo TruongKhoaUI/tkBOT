@@ -16,7 +16,7 @@ class ImageCommand(commands.Cog):
         async with aiohttp.ClientSession() as session:
           async with session.get(f"https://source.unsplash.com/featured/?{search}") as response:
             image_bytes = await response.read()
-        with open("imagegenerator/image.jpg", "wb") as f:
+        with open(".imagegenerator/image.jpg", "wb") as f:
           f.write(image_bytes)
         file = discord.File("imagegenerator/image.jpg", filename="image.jpg")
         embed = discord.Embed(title=f"Image searched for: {search}", description="Generation successful.", color=0x3f48cc)
