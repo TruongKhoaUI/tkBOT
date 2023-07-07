@@ -13,7 +13,7 @@ class UserinfoCommandSlash(commands.Cog):
       ctx = interaction
       await interaction.response.defer(ephemeral = False)
       if isinstance(member, int):
-        # Get profile picture from a user when they are not in the guild
+        # Get userinfo from a user when they are not in the guild
         try:
           member = await self.bot.fetch_user(member)
         # It will show this message when the user ID is invaild

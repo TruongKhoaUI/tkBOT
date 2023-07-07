@@ -8,18 +8,18 @@ class UserinfoCommand(commands.Cog):
 
   @commands.command(name="userinfo", description="View member's information.") # View user information
   async def userinfo(self, ctx, member: Union[discord.Member, discord.User, int] = None):
-    async with ctx.typing():
-      if isinstance(member, int):
-        # Get profile picture from a user when they are not in the guild
-        try:
+    async with ctx.typing():      
+      # Get userinfo from a user when they are not in the guild
+      try:
+        if isinstance(member, int):
           member = await self.bot.fetch_user(member)
-        # It will show this message when the user ID is invaild
-        except discord.errors.NotFound:
-          embed = discord.Embed(title="User Information", description="Invalid user ID or username.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author=False)
-          return
+      # It will show this message when the user ID is invaild
+      except discord.errors.NotFound:
+        embed = discord.Embed(title="User Information", description="Invalid user ID or username.", color=0x3f48cc)
+        await ctx.reply(embed=embed, mention_author=False)
+        return
       # If the `member` value is empty, it will show their userinfo that they have sent
-      elif member is None:
+      if member is None:
         member = ctx.author
       if isinstance(member, discord.Member):
         # Show the roles they have
