@@ -9,7 +9,7 @@ from math import ceil
 cooldown = timedelta(seconds=10)
 last_message = {} 
 
-class LeaderboardCommandSlash(commands.Cog):
+class RankCommandSlash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
   
@@ -56,9 +56,9 @@ class LeaderboardCommandSlash(commands.Cog):
     with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
         
-  @app_commands.command(name="leaderboard", description="View the leaderboard")
+  @app_commands.command(name="rank", description="View the leaderboard")
   @app_commands.describe(page="View the next top 10 page.")
-  async def leaderboard(self, interaction: discord.Interaction, page: int = 1):
+  async def rank(self, interaction: discord.Interaction, page: int = 1):
     ctx = interaction
     await interaction.response.defer(ephemeral = False)
     if ctx.guild:
@@ -107,4 +107,4 @@ class LeaderboardCommandSlash(commands.Cog):
       await interaction.followup.send(embed=embed)
 
 def setup(bot):
-  bot.add_cog(LeaderboardCommandSlash(bot))
+  bot.add_cog(RankCommandSlash(bot))

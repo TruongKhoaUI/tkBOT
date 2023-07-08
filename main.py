@@ -16,11 +16,11 @@ from commands.prefixcommands.echo import EchoCommand
 from commands.prefixcommands.help import HelpCommand
 from commands.prefixcommands.image import ImageCommand
 from commands.prefixcommands.kick import KickCommand
-from commands.prefixcommands.leaderboard import LeaderboardCommand
 from commands.prefixcommands.pfp import PfpCommand
 from commands.prefixcommands.ping import PingCommand
 from commands.prefixcommands.poll import PollCommand
-from commands.prefixcommands.resetpoints import ResetpointsCommand
+from commands.prefixcommands.rank import RankCommand
+from commands.prefixcommands.rankreset import RankresetCommand
 from commands.prefixcommands.serverinfo import ServerinfoCommand
 from commands.prefixcommands.timeout import TimeoutCommand
 from commands.prefixcommands.userinfo import UserinfoCommand
@@ -33,11 +33,11 @@ from commands.slashcommands.echo import EchoCommandSlash
 from commands.slashcommands.help import HelpCommandSlash
 from commands.slashcommands.image import ImageCommandSlash
 from commands.slashcommands.kick import KickCommandSlash
-from commands.slashcommands.leaderboard import LeaderboardCommandSlash
 from commands.slashcommands.pfp import PfpCommandSlash
 from commands.slashcommands.ping import PingCommandSlash
 from commands.slashcommands.poll import PollCommandSlash
-from commands.slashcommands.resetpoints import ResetpointsCommandSlash
+from commands.slashcommands.rank import RankCommandSlash
+from commands.slashcommands.rankreset import RankresetCommandSlash
 from commands.slashcommands.serverinfo import ServerinfoCommandSlash
 from commands.slashcommands.timeout import TimeoutCommandSlash
 from commands.slashcommands.userinfo import UserinfoCommandSlash
@@ -66,11 +66,11 @@ async def on_ready():
   await bot.add_cog(HelpCommand(bot))
   await bot.add_cog(ImageCommand(bot))
   await bot.add_cog(KickCommand(bot))
-  await bot.add_cog(LeaderboardCommand(bot))
   await bot.add_cog(PfpCommand(bot))
   await bot.add_cog(PingCommand(bot))
-  await bot.add_cog(PollCommand(bot))  
-  await bot.add_cog(ResetpointsCommand(bot))
+  await bot.add_cog(PollCommand(bot))
+  await bot.add_cog(RankCommand(bot))  
+  await bot.add_cog(RankresetCommand(bot))
   await bot.add_cog(ServerinfoCommand(bot))
   await bot.add_cog(TimeoutCommand(bot))
   await bot.add_cog(UserinfoCommand(bot))
@@ -83,11 +83,11 @@ async def on_ready():
   await bot.add_cog(HelpCommandSlash(bot))  
   await bot.add_cog(ImageCommandSlash(bot))
   await bot.add_cog(KickCommandSlash(bot))
-  await bot.add_cog(LeaderboardCommandSlash(bot))
   await bot.add_cog(PfpCommandSlash(bot))
   await bot.add_cog(PingCommandSlash(bot))  
   await bot.add_cog(PollCommandSlash(bot))
-  await bot.add_cog(ResetpointsCommandSlash(bot))  
+  await bot.add_cog(RankCommandSlash(bot))  
+  await bot.add_cog(RankresetCommandSlash(bot)) 
   await bot.add_cog(ServerinfoCommandSlash(bot))  
   await bot.add_cog(TimeoutCommandSlash(bot))  
   await bot.add_cog(UserinfoCommandSlash(bot))  
