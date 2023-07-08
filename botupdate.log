@@ -144,3 +144,6 @@
 
 ----- Version 2.0.0.20230704 -----
 - Added "poll" command.
+
+----- Version 2.0.1.20230708 -----
+- Changed "leaderboard" and "resetpoints" to "rank" and "rankreset"
