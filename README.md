@@ -20,10 +20,9 @@
 - echo
 - help
 - image
-- leaderboard
 - pfp
 - ping
-- resetpoints
+- rank
 - serverinfo
 - userinfo
 - wikidiscovery
@@ -32,7 +31,8 @@
 
 * ban
 * kick
-* resetpoints
+* rankreset
+* rankresetuser
 * timeout
 * warn
 
