@@ -43,6 +43,5 @@
 - Search images from the internet with Unsplash by typing the command `tk!image [search]` or `/image [search]`.
 - Find information with Wikipedia API based by typing the command `tk!wikidiscovery [search]` or `/wikidiscovery [search]`. Some information may be wrong and not correct.
 - Help for commands? Type `tk!help` or `/help` to show all buttons to let you click if you have to help for the command you have clicked.
-- Note that you have to give Administrator permissions for the integration to let the bot can use the moderation commands.
-- View your top 10 leaderboard with a type by using `leaderboard` or `leaderboard [page]` to see another page.
+- View your top 10 leaderboard with a type by using `rank` or `rank [page]` to see another page.
 
