@@ -1,6 +1,7 @@
 import datetime
 import discord
 import os
+from discord import app_commands
 from keep_alive import keep_alive
 from discord.ext import commands
 # Import chatlog code
@@ -106,6 +107,13 @@ async def on_ready():
     print(e)
   embed = discord.Embed(title="Bot Connected", description=f"- **Last connected:** {start_time.strftime('%a %d %B %Y, %I:%M %p')}.\n- **Commands in total:** {len(synced)} command(s)\n- **Session ID:** {session_id}", color=0x3f48cc)
   await botconnectid.send(embed=embed)
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        pass  # Ignore CheckFailure exceptions
+    else:
+        raise error  # Re-raise other exceptions
 
 # Keep bot online 24/7 and token included
 keep_alive()
