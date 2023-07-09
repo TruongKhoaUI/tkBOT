@@ -24,7 +24,8 @@ class HelpCommandSlash(commands.Cog):
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
               discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
               discord.SelectOption(label="rank", description="Help with `rank` command", emoji="🥇"),            
-              discord.SelectOption(label="rankreset", description="Help with `rankreset` command", emoji="🥇"),              
+              discord.SelectOption(label="rankreset", description="Help with `rankreset` command", emoji="🥇"), 
+              discord.SelectOption(label="rankresetuser", description="Help with `rankresetuser` command", emoji="🥇"),              
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
@@ -68,6 +69,9 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "rankreset":
               embed = discord.Embed(title="Help with `rankreset` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
               embed.add_field(name="How to use it", value="Type `tk!rankreset` or `/rankreset` to remove all of the points for all members in the specific guild.", inline=False)                
+            elif interaction.data["values"][0] == "rankresetuser":
+              embed = discord.Embed(title="Help with `rankresetuser` command", description="**This command will remove the points for specific members in the specific guild.**", color=0x348cc)              
+              embed.add_field(name="How to use it", value="Type `tk!rankresetuser` or `/rankresetuser` to remove the points for specific members in the specific guild.", inline=False)               
             elif interaction.data["values"][0] == "serverinfo":
               embed = discord.Embed(title="Help with `serverinfo` command", description="**This command will show the information about the current server you're in.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!serverinfo` or `/serverinfo` to show the information about the current server you're in.", inline=False)
@@ -157,6 +161,7 @@ class HelpCommandSlash(commands.Cog):
               discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
               discord.SelectOption(label="rank", description="Help with `rank` command", emoji="🥇"),            
               discord.SelectOption(label="rankreset", description="Help with `rankreset` command", emoji="🥇"),              
+              discord.SelectOption(label="rankresetuser", description="Help with `rankresetuser` command", emoji="🥇"),              
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
@@ -203,6 +208,9 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "rankreset":
               embed = discord.Embed(title="Help with `rankreset` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
               embed.add_field(name="How to use it", value="Type `tk!rankreset` or `/rankreset` to remove all of the points for all members in the specific guild.", inline=False)             
+            elif interaction.data["values"][0] == "rankresetuser":
+              embed = discord.Embed(title="Help with `rankresetuser` command", description="**This command will remove the points for specific members in the specific guild.**", color=0x348cc)              
+              embed.add_field(name="How to use it", value="Type `tk!rankresetuser` or `/rankresetuser` to remove the points for specific members in the specific guild.", inline=False)               
             elif interaction.data["values"][0] == "serverinfo":
               embed = discord.Embed(title="Help with `serverinfo` command", description="**This command will show the information about the current server you're in.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!serverinfo` or `/serverinfo` to show the information about the current server you're in.", inline=False)
