@@ -147,3 +147,6 @@
 
 ----- Version 2.0.1.20230708 -----
 - Changed "leaderboard" and "resetpoints" to "rank" and "rankreset"
+
+----- Version 2.0.2.20230709 -----
+- Added "rankresetuser" to reset points for specific member.

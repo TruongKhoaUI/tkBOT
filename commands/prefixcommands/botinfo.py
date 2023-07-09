@@ -42,7 +42,7 @@ class BotinfoCommand(commands.Cog):
       embed.set_author(name="tkBOT")
       embed.set_thumbnail(url=member.avatar.url)
       # About bot specifications
-      embed.add_field(name='**Bot specifications**', value=f'- 🤖｜Bot Version: 2.0.1.20230708\n- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n- ⌚｜Uptime: {uptime_string}', inline=False)
+      embed.add_field(name='**Bot specifications**', value=f'- 🤖｜Bot Version: 2.0.2.20230709\n- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n- ⌚｜Uptime: {uptime_string}', inline=False)
       embed.add_field(name='**Stats**', value=f"- 🏠｜Servers: {total_servers}\n- 📝｜Channels: {total_channels}\n- 🔊｜Voice Channels: {total_voice_channels}\n- 👥｜Members: {total_members}", inline=False)
       embed.add_field(name='**Hardware info**', value=f'- 💻｜CPU Usage: {psutil.cpu_percent()}%\n- 📝｜RAM Usage: {memory_used_mb}/512MB\n- 💽｜Disk Usage: {used_disk_space_mb}MB/1024MB', inline=False)
       embed.add_field(name='**Helpers**', value='- [truongkhoa](discord://-/users/1021023635814760458) (owner)\n- [mr5g](discord://-/users/936240483980693525)', inline=False)
