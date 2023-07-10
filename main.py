@@ -13,6 +13,7 @@ from commands.botlogsmessage.svkicked import Serverkick
 # Import prefix commands
 from commands.prefixcommands.ban import BanCommand
 from commands.prefixcommands.botinfo import BotinfoCommand
+from commands.prefixcommands.commands import CommandsCommand
 from commands.prefixcommands.echo import EchoCommand
 from commands.prefixcommands.help import HelpCommand
 from commands.prefixcommands.image import ImageCommand
@@ -31,6 +32,7 @@ from commands.prefixcommands.wikidiscovery import WikidiscoveryCommand
 # Import slash commands
 from commands.slashcommands.ban import BanCommandSlash
 from commands.slashcommands.botinfo import BotinfoCommandSlash
+from commands.slashcommands.commands import CommandsCommandSlash
 from commands.slashcommands.echo import EchoCommandSlash
 from commands.slashcommands.help import HelpCommandSlash
 from commands.slashcommands.image import ImageCommandSlash
@@ -51,6 +53,7 @@ from commands.slashcommands.wikidiscovery import WikidiscoveryCommandSlash
 # Commands
 bot = commands.Bot(command_prefix='tk!', intents = discord.Intents.all())
 bot.remove_command("help")
+bot.command_states = {}
 
 # View the custom status of bot and bot connect status
 @bot.event  # Connected status
@@ -65,6 +68,7 @@ async def on_ready():
   # Register prefix commands
   await bot.add_cog(BanCommand(bot))
   await bot.add_cog(BotinfoCommand(bot))
+  await bot.add_cog(CommandsCommand(bot))
   await bot.add_cog(EchoCommand(bot))
   await bot.add_cog(HelpCommand(bot))
   await bot.add_cog(ImageCommand(bot))
@@ -83,6 +87,7 @@ async def on_ready():
   # Register slash commands
   await bot.add_cog(BanCommandSlash(bot))  
   await bot.add_cog(BotinfoCommandSlash(bot))  
+  await bot.add_cog(CommandsCommandSlash(bot))
   await bot.add_cog(EchoCommandSlash(bot))  
   await bot.add_cog(HelpCommandSlash(bot))  
   await bot.add_cog(ImageCommandSlash(bot))
@@ -113,11 +118,13 @@ async def on_ready():
   await botconnectid.send(embed=embed)
 
 @bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CheckFailure):
-        pass  # Ignore CheckFailure exceptions
-    else:
-        raise error  # Re-raise other exceptions
+async def on_message(message):
+  # Check if the message is a command and if it's disabled
+  if message.content.startswith(bot.command_prefix) and not message.author.bot:
+    command = message.content.split(" ")[0][len(bot.command_prefix):]
+    if bot.command_states.get(str(message.guild.id), {}).get(command) is False:
+      return  # Command is disabled, don't execute
+  await bot.process_commands(message)
 
 # Keep bot online 24/7 and token included
 keep_alive()

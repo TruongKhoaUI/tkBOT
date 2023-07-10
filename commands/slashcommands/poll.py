@@ -14,6 +14,10 @@ class PollCommandSlash(commands.Cog):
   @app_commands.describe(answer4="Enter the fourth answer.")
   @app_commands.describe(answer5="Enter the fifth answer.")
   async def poll(self, interaction: discord.Interaction, *, question: str, answer1: str, answer2: str, answer3: str = None, answer4: str = None, answer5: str = None):
+    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("ping", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     await interaction.response.defer(ephemeral=False)
     ctx = interaction
     options = [answer1, answer2, answer3, answer4, answer5]

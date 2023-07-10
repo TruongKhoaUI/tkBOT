@@ -10,6 +10,10 @@ class PfpCommandSlash(commands.Cog):
   @app_commands.command(name="pfp", description="Show member's avatar.") # Show the profile picture
   @app_commands.describe(member="Select a specific user.")
   async def pfp(self, interaction: discord.Interaction, member: discord.User = None):
+    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("pfp", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     ctx = interaction
     await interaction.response.defer(ephemeral = False)
     # If the `member` value is empty, it will show their avatar that they have sent

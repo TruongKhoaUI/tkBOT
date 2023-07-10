@@ -11,6 +11,10 @@ class RankresetuserCommandSlash(commands.Cog):
   @app_commands.command(name="rankresetuser", description="Reset points for a specific member.")
   @app_commands.describe(member="Select a specific user.")
   async def rankresetuser(self, interaction: discord.Interaction, member: discord.User):
+    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("rankresetuser", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     ctx = interaction
     await interaction.response.defer(ephemeral = False)  
     if ctx.guild:

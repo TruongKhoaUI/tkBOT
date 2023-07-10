@@ -9,6 +9,10 @@ class PingCommandSlash(commands.Cog):
 
   @app_commands.command(name="ping", description="Show the time the bot responds.") # Show the time the bot responds
   async def ping(self, interaction: discord.Interaction):      
+    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("ping", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     await interaction.response.defer(ephemeral = False)
     # Get the Discord API time response
     response = requests.get('https://discord.com')

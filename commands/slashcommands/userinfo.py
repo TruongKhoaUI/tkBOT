@@ -10,6 +10,10 @@ class UserinfoCommandSlash(commands.Cog):
   @app_commands.command(name="userinfo", description="View member's information.")
   @app_commands.describe(member="Select a specific user.")
   async def userinfo(self, interaction:discord.Interaction, member:discord.User = None):
+      if not self.bot.command_states.get(str(interaction.guild.id), {}).get("userinfo", True):
+        embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+        return    
       ctx = interaction
       await interaction.response.defer(ephemeral = False)
       if isinstance(member, int):

@@ -12,6 +12,10 @@ class BanCommandSlash(commands.Cog):
   @app_commands.describe(reason="Enter a reason why they need to ban.")
   async def ban(self, interaction: discord.Interaction, member: discord.User, reason: str):
     ctx = interaction
+    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("ban", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     await interaction.response.defer(ephemeral = False)
     if ctx.guild:
       guild = ctx.guild

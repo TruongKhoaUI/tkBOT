@@ -59,6 +59,10 @@ class RankCommandSlash(commands.Cog):
   @app_commands.command(name="rank", description="View the leaderboard")
   @app_commands.describe(page="View the next top 10 page.")
   async def rank(self, interaction: discord.Interaction, page: int = 1):
+    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("rank", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     ctx = interaction
     await interaction.response.defer(ephemeral = False)
     if ctx.guild:
