@@ -8,10 +8,10 @@ class HelpCommandSlash(commands.Cog):
 
   @app_commands.command(name="help", description="Help with commands") # Help with commands
   async def help(self, interaction: discord.Interaction):
-      if not self.bot.command_states.get(str(interaction.guild.id), {}).get("help", True):
+      if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("help", True):
         embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
         await interaction.response.send_message(embed=embed, ephemeral=True)
-        return    
+        return  
       ctx = interaction
       await interaction.response.defer(ephemeral = False)
       if ctx.guild:

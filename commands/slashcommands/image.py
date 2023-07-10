@@ -11,10 +11,10 @@ class ImageCommandSlash(commands.Cog):
   @app_commands.command(name="image", description="Generate a image.") # Search image on the internet
   @app_commands.describe(search="Enter a keyword to search a image.")
   async def image (self, interaction: discord.Interaction, *, search: str):
-    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("image", True):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("image", True):
       embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed, ephemeral=True)
-      return    
+      return   
     await interaction.response.defer(ephemeral=False)
     async with aiohttp.ClientSession() as session:
       async with session.get(f"https://source.unsplash.com/featured/?{search}") as response:

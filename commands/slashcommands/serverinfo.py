@@ -8,10 +8,10 @@ class ServerinfoCommandSlash(commands.Cog):
 
   @app_commands.command(name="serverinfo", description="View the current server you're in.") # View server information
   async def serverinfo(self, interaction: discord.Interaction):
-    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("serverinfo", True):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("serverinfo", True):
       embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed, ephemeral=True)
-      return    
+      return  
     ctx = interaction  
     await interaction.response.defer(ephemeral = False)
     if ctx.guild:

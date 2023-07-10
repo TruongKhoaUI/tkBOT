@@ -13,10 +13,10 @@ class BotinfoCommandSlash(commands.Cog):
 
   @app_commands.command(name="botinfo", description="Give information about this bot.") # About this bot with hardware status
   async def botinfo(self, interaction: discord.Interaction):
-    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("botinfo", True):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("botinfo", True):
       embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed, ephemeral=True)
-      return    
+      return   
     await interaction.response.defer(ephemeral = False)
     # Buttons
     addserver = Button(label="Add to server", url = "https://discord.com/api/oauth2/authorize?client_id=1098583942145257534&permissions=8&scope=applications.commands%20bot", emoji = "➕")

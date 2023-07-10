@@ -119,12 +119,14 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-  # Check if the message is a command and if it's disabled
-  if message.content.startswith(bot.command_prefix) and not message.author.bot:
-    command = message.content.split(" ")[0][len(bot.command_prefix):]
-    if bot.command_states.get(str(message.guild.id), {}).get(command) is False:
-      return  # Command is disabled, don't execute
-  await bot.process_commands(message)
+    # Check if the message is a command and if it's disabled
+    if message.content.startswith(bot.command_prefix) and not message.author.bot:
+        command = message.content.split(" ")[0][len(bot.command_prefix):]
+        guild_id = str(message.guild.id) if message.guild else None
+        if guild_id and guild_id in bot.command_states and bot.command_states[guild_id].get(command) is False:
+            return  # Command is disabled, don't execute
+
+    await bot.process_commands(message)
 
 # Keep bot online 24/7 and token included
 keep_alive()

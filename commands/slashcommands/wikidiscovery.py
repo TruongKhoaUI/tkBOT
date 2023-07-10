@@ -11,10 +11,10 @@ class WikidiscoveryCommandSlash(commands.Cog):
   @app_commands.command(name="wikidiscovery", description="Discorver information from Wikipedia.") # Discorvery in Wikipedia
   @app_commands.describe(search="Enter a keyword to request a information.")
   async def wikidiscovery(self, interaction: discord.Interaction, search: str):
-    if not self.bot.command_states.get(str(interaction.guild.id), {}).get("wikidiscovery", True):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("wikidiscovery", True):
       embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed, ephemeral=True)
-      return    
+      return
     await interaction.response.defer(ephemeral = False)
     wikisearch = urllib.parse.quote(search)
     try:
