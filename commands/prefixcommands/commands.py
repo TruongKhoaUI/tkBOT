@@ -8,7 +8,7 @@ class CommandsCommand(commands.Cog):
     self.load_command_states()
 
   @commands.command()
-  async def toggle(self, ctx, command: str = None):
+  async def commands(self, ctx, command: str = None):
     async with ctx.typing():
       if ctx.guild:
         if not ctx.author.guild_permissions.administrator:

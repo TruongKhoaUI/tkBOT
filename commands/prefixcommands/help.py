@@ -35,6 +35,10 @@ class HelpCommand(commands.Cog):
           view = discord.ui.View()
           view.add_item(select)    
           async def callback(interaction):
+            if interaction.user != ctx.author:
+              embed = discord.Embed(title="This select option is not yours", color=0x3f48cc)
+              await interaction.response.send_message(embed=embed, ephemeral=True)
+              return            
             if interaction.data["values"][0] == "ban":
               embed = discord.Embed(title="Help with `ban` command", description="**This command will ban the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!ban [user] [reason]` `/ban [user] [reason]` to ban someone.", inline=False)
@@ -92,8 +96,7 @@ class HelpCommand(commands.Cog):
             elif interaction.data["values"][0] == "wikidiscovery":
               embed = discord.Embed(title="Help with `wikidiscovery` command", description="**This command will search the information you provived in Wikipedia.**", color=0x3f48cc)
               embed.add_field(name="How to use it", value="Type `tk!wikidiscovery [search]` or `/wikidiscovery [search]` to search the information you provived.", inline=False)
-            await interaction.response.edit_message(content="", embed=embed, view=None)
-         
+            await interaction.response.edit_message(content="", embed=embed, view=None)         
           select.callback = callback
           embed = discord.Embed(title="tkBOT's Help", description="Welcome! Choose one of these options to get started with the specific commands.", color=0x3f48cc)
           await ctx.reply(embed=embed, view=view, mention_author = False)
@@ -116,6 +119,10 @@ class HelpCommand(commands.Cog):
           view = discord.ui.View()
           view.add_item(select)    
           async def callback(interaction):
+            if interaction.user != ctx.author:
+              embed = discord.Embed(title="This select option is not yours", color=0x3f48cc)
+              await interaction.response.send_message(embed=embed, ephemeral=True)
+              return             
             if interaction.data["values"][0] == "botinfo":
               embed = discord.Embed(title="Help with `botinfo` command", description="**This command will show the information about this bot such as CPU, RAM, and disk usage.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!botinfo` or `/botinfo` to let it show the bot status.", inline=False)
@@ -179,6 +186,10 @@ class HelpCommand(commands.Cog):
           view = discord.ui.View()
           view.add_item(select)    
           async def callback(interaction):
+            if interaction.user != ctx.author:
+              embed = discord.Embed(title="This select option is not yours", color=0x3f48cc)
+              await interaction.response.send_message(embed=embed, ephemeral=True)
+              return             
             if interaction.data["values"][0] == "ban":
               embed = discord.Embed(title="Help with `ban` command", description="**This command will ban the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!ban [user] [reason]` `/ban [user] [reason]` to ban someone.", inline=False)

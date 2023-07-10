@@ -33,6 +33,12 @@ class RankCommand(commands.Cog):
       return
     if message.webhook_id is not None:  # Exclude webhooks
       return      
+    guild_id = str(message.guild.id)
+    if guild_id not in self.bot.command_states:
+      return
+    command_states = self.bot.command_states[guild_id]
+    if "rank" in command_states and not command_states["rank"]:
+      return      
     now = datetime.utcnow()
     if message.author.id in last_message and now - last_message[message.author.id] < cooldown:
       return
