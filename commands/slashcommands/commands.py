@@ -13,6 +13,8 @@ class CommandsCommandSlash(commands.Cog):
   @app_commands.choices(command=[
     discord.app_commands.Choice(name="ban", value="ban"),
     discord.app_commands.Choice(name="botinfo", value="botinfo"),
+    discord.app_commands.Choice(name="commands", value="commands"),
+    discord.app_commands.Choice(name="commandsstates", value="commandsstates"),    
     discord.app_commands.Choice(name="echo", value="echo"),
     discord.app_commands.Choice(name="help", value="help"),
     discord.app_commands.Choice(name="image", value="image"),

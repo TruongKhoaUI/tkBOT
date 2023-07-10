@@ -14,6 +14,7 @@ from commands.botlogsmessage.svkicked import Serverkick
 from commands.prefixcommands.ban import BanCommand
 from commands.prefixcommands.botinfo import BotinfoCommand
 from commands.prefixcommands.commands import CommandsCommand
+from commands.prefixcommands.commandsstates import CommandsstatesCommand
 from commands.prefixcommands.echo import EchoCommand
 from commands.prefixcommands.help import HelpCommand
 from commands.prefixcommands.image import ImageCommand
@@ -33,6 +34,7 @@ from commands.prefixcommands.wikidiscovery import WikidiscoveryCommand
 from commands.slashcommands.ban import BanCommandSlash
 from commands.slashcommands.botinfo import BotinfoCommandSlash
 from commands.slashcommands.commands import CommandsCommandSlash
+from commands.slashcommands.commandsstates import CommandsstatesCommandSlash
 from commands.slashcommands.echo import EchoCommandSlash
 from commands.slashcommands.help import HelpCommandSlash
 from commands.slashcommands.image import ImageCommandSlash
@@ -58,7 +60,7 @@ bot.command_states = {}
 # View the custom status of bot and bot connect status
 @bot.event  # Connected status
 async def on_ready():
-  await bot.change_presence(activity=discord.Game(name='tk!help and /help'), status=discord.Status.online)
+  await bot.change_presence(activity=discord.Game(name='tk!help'), status=discord.Status.online)
   # Register chatlog code
   await bot.add_cog(Messagesent(bot))
   await bot.add_cog(Messageedit(bot))
@@ -69,6 +71,7 @@ async def on_ready():
   await bot.add_cog(BanCommand(bot))
   await bot.add_cog(BotinfoCommand(bot))
   await bot.add_cog(CommandsCommand(bot))
+  await bot.add_cog(CommandsstatesCommand(bot))
   await bot.add_cog(EchoCommand(bot))
   await bot.add_cog(HelpCommand(bot))
   await bot.add_cog(ImageCommand(bot))
@@ -88,6 +91,7 @@ async def on_ready():
   await bot.add_cog(BanCommandSlash(bot))  
   await bot.add_cog(BotinfoCommandSlash(bot))  
   await bot.add_cog(CommandsCommandSlash(bot))
+  await bot.add_cog(CommandsstatesCommandSlash(bot))
   await bot.add_cog(EchoCommandSlash(bot))  
   await bot.add_cog(HelpCommandSlash(bot))  
   await bot.add_cog(ImageCommandSlash(bot))

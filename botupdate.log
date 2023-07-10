@@ -152,5 +152,5 @@
 - Added "rankresetuser" to reset points for specific member.
 
 ----- Version 2.0.3.20230710 -----
-- Added "commands" command to management the bot commands on specific guild.
+- Added "commands" and "commandsstates" command to management the bot commands on specific guild.
 - Fixed some code on "help" command for button owner
