@@ -19,6 +19,10 @@ class CommandsCommand(commands.Cog):
           embed = discord.Embed(title="Commands management", description="Please enter a command to enable/disable.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author=False)
           return
+        if command == "commands":
+          embed = discord.Embed(title="Commands management", description="You cannot disable this command.", color=0x3f48cc)
+          await ctx.reply(embed=embed, mention_author=False)
+          return             
         commands = self.bot.get_command(command)
         if commands:
           guild_id = str(ctx.guild.id)

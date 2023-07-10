@@ -10,6 +10,25 @@ class CommandsCommandSlash(commands.Cog):
 
   @app_commands.command(name="commands", description="Enable/disable a command.")
   @app_commands.describe(command="Choose a command to enable/disable")
+  @app_commands.choices(command=[
+    discord.app_commands.Choice(name="ban", value="ban"),
+    discord.app_commands.Choice(name="botinfo", value="botinfo"),
+    discord.app_commands.Choice(name="echo", value="echo"),
+    discord.app_commands.Choice(name="help", value="help"),
+    discord.app_commands.Choice(name="image", value="image"),
+    discord.app_commands.Choice(name="kick", value="kick"),
+    discord.app_commands.Choice(name="pfp", value="pfp"),
+    discord.app_commands.Choice(name="ping", value="ping"),    
+    discord.app_commands.Choice(name="poll", value="poll"),
+    discord.app_commands.Choice(name="rank", value="rank"),
+    discord.app_commands.Choice(name="rankreset", value="rankreset"),
+    discord.app_commands.Choice(name="rankresetuser", value="rankresetuser"),
+    discord.app_commands.Choice(name="serverinfo", value="serverinfo"),
+    discord.app_commands.Choice(name="timeout", value="timeout"),
+    discord.app_commands.Choice(name="userinfo", value="userinfo"),
+    discord.app_commands.Choice(name="warn", value="warn"),      
+    discord.app_commands.Choice(name="wikidiscovery", value="wikidiscovery"),
+  ])  
   async def commands(self, interaction: discord.Interaction, command: str):
     await interaction.response.defer(ephemeral=False)
     ctx = interaction
@@ -18,10 +37,10 @@ class CommandsCommandSlash(commands.Cog):
         embed = discord.Embed(title="Commands management", description="You don't have permission to use this command.", color=0x3f48cc)
         await interaction.followup.send(embed=embed)
         return
-      if command is None:
-        embed = discord.Embed(title="Commands management", description="Please enter a command to enable/disable.", color=0x3f48cc)
+      if command == "commands":
+        embed = discord.Embed(title="Commands management", description="You cannot disable this command.", color=0x3f48cc)
         await interaction.followup.send(embed=embed)
-        return
+        return   
       commands = self.bot.get_command(command)
       if commands:
         guild_id = str(ctx.guild.id)
