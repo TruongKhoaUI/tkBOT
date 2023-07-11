@@ -24,7 +24,6 @@ class CommandsCommandSlash(commands.Cog):
     discord.app_commands.Choice(name="poll", value="poll"),
     discord.app_commands.Choice(name="rank", value="rank"),
     discord.app_commands.Choice(name="rankreset", value="rankreset"),
-    discord.app_commands.Choice(name="rankresetuser", value="rankresetuser"),
     discord.app_commands.Choice(name="serverinfo", value="serverinfo"),
     discord.app_commands.Choice(name="timeout", value="timeout"),
     discord.app_commands.Choice(name="userinfo", value="userinfo"),

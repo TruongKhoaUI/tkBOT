@@ -8,6 +8,10 @@ class CommandsstatesCommandSlash(commands.Cog):
 
   @app_commands.command(name="commandsstates", description="View all enable/disable commands.")
   async def commandsstates(self, interaction: discord.Interaction):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("commandsstates", True):
+      embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
+      await interaction.response.send_message(embed=embed, ephemeral=True)
+      return    
     await interaction.response.defer(ephemeral=False)
     ctx = interaction
     if ctx.guild:
