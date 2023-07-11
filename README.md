@@ -2,42 +2,8 @@
 
 ## About this Bot
 - Bot with utility moderation commands and random stuff commands.
-- Built-in Discord.py version 2.3.0 with PIP version 21.
-- Do not make a copy or stole my bot or any information without my permission.
-- This bot is working Replit and hosted using UpTimeRobot. You can find my project [here](https://replit.com/@truongkhoaui/tkBOT). Or you can view my GitHub repositry [here](https://github.com/TruongKhoaUI/tkBOT)
-- Interested in my bot? Then you can add me [here](https://discord.com/api/oauth2/authorize?client_id=1098583942145257534&permissions=8&scope=applications.commands%20bot).
-
-## Commands
-<table>
-  <tr>
-    <th>User commands</th>
-    <th>Moderation commands</th>
-  </tr>
-  <tr>
-    <td>
-
-- botinfo
-- echo
-- help
-- image
-- pfp
-- ping
-- rank
-- serverinfo
-- userinfo
-- wikidiscovery
-
-  </td><td>
-
-* ban
-* kick
-* rankreset
-* rankresetuser
-* timeout
-* warn
-
-  </td>
-</tr></table>
+- Written using Python and Replit.
+- Do not make a copy or stole my bot or any information.
 
 ## Features
 - Search images from the internet with Unsplash by typing the command `tk!image [search]` or `/image [search]`.

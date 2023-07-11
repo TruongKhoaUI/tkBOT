@@ -72,7 +72,7 @@ class RankCommandSlash(commands.Cog):
       sorted_points = sorted(server_points.items(), key=lambda x: x[1], reverse=True)
       per_page = 10
       start_index = (page - 1) * per_page
-      end_index = start_index + per_page
+      end_index = min(start_index + per_page, len(sorted_points))
       page_points = sorted_points[start_index:end_index]
       userpoints = points.get(str(ctx.guild.id), {}).get(str(ctx.user.id), 0)
       userrank_list = [i for i, x in enumerate(sorted_points) if x[0] == str(ctx.user.id)]

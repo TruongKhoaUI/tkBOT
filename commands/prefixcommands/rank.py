@@ -6,7 +6,8 @@ from datetime import datetime, timedelta
 from math import ceil
 
 cooldown = timedelta(seconds=10)
-last_message = {} 
+last_message = {}
+
 
 class RankCommand(commands.Cog):
   def __init__(self, bot):
@@ -24,7 +25,7 @@ class RankCommand(commands.Cog):
           points[str(guild.id)][str(member.id)] = 0
     with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
-      
+
   @commands.Cog.listener()
   async def on_message(self, message):
     if message.author == self.bot.user:
@@ -32,13 +33,13 @@ class RankCommand(commands.Cog):
     if message.guild is None:  # Check if the message is in a DM
       return
     if message.webhook_id is not None:  # Exclude webhooks
-      return      
+      return
     guild_id = str(message.guild.id)
     if guild_id not in self.bot.command_states:
       return
     command_states = self.bot.command_states[guild_id]
     if "rank" in command_states and not command_states["rank"]:
-      return      
+      return
     now = datetime.utcnow()
     if message.author.id in last_message and now - last_message[message.author.id] < cooldown:
       return
@@ -60,7 +61,7 @@ class RankCommand(commands.Cog):
     points[guild_id][author_id] += 3
     with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
-  
+
   @commands.command(name="rank", description="View the leaderboard")
   async def rank(self, ctx, page: int = 1):
     async with ctx.typing():
@@ -71,7 +72,7 @@ class RankCommand(commands.Cog):
         sorted_points = sorted(server_points.items(), key=lambda x: x[1], reverse=True)
         per_page = 10
         start_index = (page - 1) * per_page
-        end_index = start_index + per_page
+        end_index = min(start_index + per_page, len(sorted_points))
         page_points = sorted_points[start_index:end_index]
         userpoints = points.get(str(ctx.guild.id), {}).get(str(ctx.author.id), 0)
         userrank_list = [i for i, x in enumerate(sorted_points) if x[0] == str(ctx.author.id)]
@@ -107,7 +108,8 @@ class RankCommand(commands.Cog):
       else:
         embed = discord.Embed(title="Leaderboard", description="You can't view the leaderboard when you're in DM.", color=0x3f48cc)
       await ctx.reply(embed=embed, mention_author=False)
-  @rank.error # Error for the timeout for the `time` value
+
+  @rank.error  # Error for the timeout for the `time` value
   async def rank_error(self, ctx, error):
     async with ctx.typing():
       # If the `time` value is not a number, it will sent this message
