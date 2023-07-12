@@ -51,7 +51,8 @@ from commands.slashcommands.wikidiscovery import WikidiscoveryCommandSlash
 
 # Bot settings
 # Commands
-bot = commands.Bot(command_prefix='tk!', intents = discord.Intents.all())
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='tk!', intents = intents, self_bot=True)
 bot.remove_command("help")
 bot.command_states = {}
 

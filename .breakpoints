@@ -3,9 +3,9 @@
     "commands/prefixcommands/help.py": [
       {
         "id": "c58bb7d7-9c5e-4248-99c0-920c047b06be",
-        "line": 29,
-        "version": 662,
-        "index": 1925
+        "line": 28,
+        "version": 688,
+        "index": 1792
       }
     ]
   }

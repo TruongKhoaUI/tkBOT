@@ -16,17 +16,8 @@ class UserinfoCommandSlash(commands.Cog):
         return  
       ctx = interaction
       await interaction.response.defer(ephemeral = False)
-      if isinstance(member, int):
-        # Get userinfo from a user when they are not in the guild
-        try:
-          member = await self.bot.fetch_user(member)
-        # It will show this message when the user ID is invaild
-        except discord.errors.NotFound:
-          embed = discord.Embed(title="User Information", description="Invalid user ID or username.", color=0x3f48cc)
-          await interaction.followup.send(embed=embed)
-          return
       # If the `member` value is empty, it will show their userinfo that they have sent
-      elif member == None:
+      if member == None:
         member = ctx.user
       if isinstance(member, discord.Member):
         # Show the roles they have
