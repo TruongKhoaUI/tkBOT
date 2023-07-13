@@ -15,7 +15,6 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="ban", description="Help with `ban` command", emoji="🔨"),
               discord.SelectOption(label="botinfo", description="Help with `botinfo` command", emoji="🤖"),
               discord.SelectOption(label="commands", description="Help with `commands` command", emoji="📃"),
-              discord.SelectOption(label="commandsstates", description="Help with `commandsstates` command", emoji="📃"),
               discord.SelectOption(label="echo", description="Help with `echo` command", emoji="📝"),
               discord.SelectOption(label="help", description="Help with `help` command", emoji="❓"),
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
@@ -46,11 +45,8 @@ class HelpCommand(commands.Cog):
               embed = discord.Embed(title="Help with `botinfo` command", description="**This command will show the information about this bot such as CPU, RAM, and disk usage.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!botinfo` or `/botinfo` to let it show the bot status.", inline=False)
             elif interaction.data["values"][0] == "commands":
-              embed = discord.Embed(title="Help with `commands` command", description="**This command will enable/disable the bot commands on the specific guild.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!commands [command]` or `/commands [command]` to enable/disable a command from this bot on the specific guild.", inline=False)
-            elif interaction.data["values"][0] == "commandsstates":
-              embed = discord.Embed(title="Help with `commandsstates` command", description="**This command will show all commands has been enabled/disabled on the specific guild.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!commandsstates` or `/commandsstates` to show all commands has been enabled/disabled on the specific guild.", inline=False)              
+              embed = discord.Embed(title="Help with `commands` command", description="**This command will show all enable/disable commands to let you enable/disable the bot commands on the specific guild.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!commands` or `/commands` to view all enable/disable commands. Type `tk!commands [command]` or `/commands [command]` to enable/disable a command from this bot on the specific guild.", inline=False)              
             elif interaction.data["values"][0] == "echo":
               embed = discord.Embed(title="Help with `echo` command", description="**This command will replace your messages from the bot.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!echo [message]` or `/echo [message]`to let the bot sent the message.", inline=False)
@@ -104,7 +100,6 @@ class HelpCommand(commands.Cog):
         else:
           options = [
               discord.SelectOption(label="botinfo", description="Help with `botinfo` command", emoji="🤖"),
-              discord.SelectOption(label="commandsstates", description="Help with `commandsstates` command", emoji="📃"),
               discord.SelectOption(label="echo", description="Help with `echo` command", emoji="📝"),
               discord.SelectOption(label="help", description="Help with `help` command", emoji="❓"),
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
@@ -170,7 +165,6 @@ class HelpCommand(commands.Cog):
               discord.SelectOption(label="ban", description="Help with `ban` command", emoji="🔨"),
               discord.SelectOption(label="botinfo", description="Help with `botinfo` command", emoji="🤖"),
               discord.SelectOption(label="commands", description="Help with `commands` command", emoji="📃"),
-              discord.SelectOption(label="commandsstates", description="Help with `commandsstates` command", emoji="📃"),
               discord.SelectOption(label="echo", description="Help with `echo` command", emoji="📝"),
               discord.SelectOption(label="help", description="Help with `help` command", emoji="❓"),
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
@@ -201,11 +195,8 @@ class HelpCommand(commands.Cog):
               embed = discord.Embed(title="Help with `botinfo` command", description="**This command will show the information about this bot such as CPU, RAM, and disk usage.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!botinfo` or `/botinfo` to let it show the bot status.", inline=False)
             elif interaction.data["values"][0] == "commands":
-              embed = discord.Embed(title="Help with `commands` command", description="**This command will enable/disable the bot commands on the specific guild.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!commands [command]` or `/commands [command]` to enable/disable a command from this bot on the specific guild.", inline=False)
-            elif interaction.data["values"][0] == "commandsstates":
-              embed = discord.Embed(title="Help with `commandsstates` command", description="**This command will show all commands has been enabled/disabled on the specific guild.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!commandsstates` or `/commandsstates` to show all commands has been enabled/disabled on the specific guild.", inline=False)              
+              embed = discord.Embed(title="Help with `commands` command", description="**This command will show all enable/disable commands to let you enable/disable the bot commands on the specific guild.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!commands` or `/commands` to view all enable/disable commands. Type `tk!commands [command]` or `/commands [command]` to enable/disable a command from this bot on the specific guild.", inline=False)
             elif interaction.data["values"][0] == "echo":
               embed = discord.Embed(title="Help with `echo` command", description="**This command will replace your messages from the bot.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!echo [message]` or `/echo [message]`to let the bot sent the message.", inline=False)

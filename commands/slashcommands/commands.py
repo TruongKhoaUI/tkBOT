@@ -30,12 +30,25 @@ class CommandsCommandSlash(commands.Cog):
     discord.app_commands.Choice(name="warn", value="warn"),      
     discord.app_commands.Choice(name="wikidiscovery", value="wikidiscovery"),
   ])  
-  async def commands(self, interaction: discord.Interaction, command: str):
+  async def commands(self, interaction: discord.Interaction, command: str = None):
     await interaction.response.defer(ephemeral=False)
     ctx = interaction
     if ctx.guild:
       if not ctx.user.guild_permissions.administrator:
         embed = discord.Embed(title="Commands management", description="You don't have permission to use this command.", color=0x3f48cc)
+        await interaction.followup.send(embed=embed)
+        return
+      if command is None:
+        guild_id = str(ctx.guild.id)
+        if guild_id not in self.bot.command_states:
+          self.bot.command_states[guild_id] = {}
+        enabled_commands = [
+          f"- :white_check_mark: `{cmd}`" if self.bot.command_states[guild_id].get(str(cmd), True) else f"- :x: `{cmd}`"
+           for cmd in sorted(self.bot.commands, key=lambda c: str(c))
+        ]
+        enabled_commands_text = "\n".join(enabled_commands)
+        embed = discord.Embed(title="Commands management", description=enabled_commands_text, color=0x3f48cc)
+        embed.set_footer(text="Type tk!commands [command] to enable/disable a specific command.")
         await interaction.followup.send(embed=embed)
         return
       if command == "commands":

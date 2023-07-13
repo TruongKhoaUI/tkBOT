@@ -11,13 +11,22 @@ class CommandsCommand(commands.Cog):
   async def commands(self, ctx, command: str = None):
     async with ctx.typing():
       if ctx.guild:
+        guild_id = str(ctx.guild.id)
         if not ctx.author.guild_permissions.administrator:
           embed = discord.Embed(title="Commands management", description="You don't have permission to use this command.", color=0x3f48cc)
           await ctx.reply(embed=embed, mention_author=False)
           return
         if command is None:
-          embed = discord.Embed(title="Commands management", description="Please enter a command to enable/disable.", color=0x3f48cc)
-          await ctx.reply(embed=embed, mention_author=False)
+          if guild_id not in self.bot.command_states:
+            self.bot.command_states[guild_id] = {}
+          enabled_commands = [
+            f"- :white_check_mark: `{cmd}`" if self.bot.command_states[guild_id].get(str(cmd), True) else f"- :x: `{cmd}`"
+            for cmd in sorted(self.bot.commands, key=lambda c: str(c))
+          ]
+          enabled_commands_text = "\n".join(enabled_commands)
+          embed = discord.Embed(title="Commands management", description=enabled_commands_text, color=0x3f48cc)
+          embed.set_footer(text="Type tk!commands [command] to enable/disable a specific command.")
+          await ctx.reply(embed=embed, mention_author=False)          
           return
         if command == "commands":
           embed = discord.Embed(title="Commands management", description="You cannot disable this command.", color=0x3f48cc)
