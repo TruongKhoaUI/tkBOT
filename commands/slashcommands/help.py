@@ -26,11 +26,11 @@ class HelpCommandSlash(commands.Cog):
               discord.SelectOption(label="help", description="Help with `help` command", emoji="❓"),
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
               discord.SelectOption(label="kick", description="Help with `kick` command", emoji="👟"),
+              discord.SelectOption(label="leaderboard", description="Help with `leaderboard` command", emoji="🥇"),            
+              discord.SelectOption(label="leaderboardreset", description="Help with `leadrboardreset` command", emoji="🥇"),             
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
               discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
-              discord.SelectOption(label="rank", description="Help with `rank` command", emoji="🥇"),            
-              discord.SelectOption(label="rankreset", description="Help with `rankreset` command", emoji="🥇"), 
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
@@ -69,6 +69,12 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "kick":
               embed = discord.Embed(title="Help with `kick` command", description="**This command will kick the specific member on the specific server.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!kick [user] [reason]` or `/kick [user] [reason]` or to kick someone.", inline=False)
+            elif interaction.data["values"][0] == "leaderboard":
+              embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
+            elif interaction.data["values"][0] == "leaderboardreset":
+              embed = discord.Embed(title="Help with `leaderboardreset` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
+              embed.add_field(name="How to use it", value="Type `tk!leaderboardreset` or `/leaderboardreset` to remove all of the points for all members in the specific guild. If you want to reset points for specific member you have choosed, type `tk!leaderboardreset [member]` or `/leaderboardreset [member]`", inline=False)                           
             elif interaction.data["values"][0] == "pfp":
               embed = discord.Embed(title="Help with `pfp` command", description="**This command will show the members image profile.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!pfp` or `/pfp` to show your profile picture. If you want to see profile picture from another member, use `tk!pfp @user` or `/pfp @user`.", inline=False)
@@ -78,12 +84,6 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "ping":
               embed = discord.Embed(title="Help with `ping` command", description="**This command will show the time the bot responds in Discord lantency time.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!ping` or `/ping` to show the time the bot responds.", inline=False)
-            elif interaction.data["values"][0] == "rank":
-              embed = discord.Embed(title="Help with `rank` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!rank` `/rank` to show the leaderboard. If you want to switch to another page, type `tk!rank [page]` or `/rank [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
-            elif interaction.data["values"][0] == "rankreset":
-              embed = discord.Embed(title="Help with `rankreset` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
-              embed.add_field(name="How to use it", value="Type `tk!rankreset` or `/rankreset` to remove all of the points for all members in the specific guild. If you want to reset points for specific member you have choosed, type `tk!rankreset [member]` or `/rankreset [member]`", inline=False)                 
             elif interaction.data["values"][0] == "serverinfo":
               embed = discord.Embed(title="Help with `serverinfo` command", description="**This command will show the information about the current server you're in.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!serverinfo` or `/serverinfo` to show the information about the current server you're in.", inline=False)
@@ -111,10 +111,10 @@ class HelpCommandSlash(commands.Cog):
               discord.SelectOption(label="echo", description="Help with `echo` command", emoji="📝"),
               discord.SelectOption(label="help", description="Help with `help` command", emoji="❓"),
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
+              discord.SelectOption(label="leaderboard", description="Help with `leaderboard` command", emoji="🥇"),            
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
               discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
-              discord.SelectOption(label="rank", description="Help with `rank` command", emoji="🥇"),            
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
               discord.SelectOption(label="wikidiscovery", description="Help with `wikidiscovery` command", emoji="🌎")
@@ -142,6 +142,9 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "image":
               embed = discord.Embed(title="Help with `image` command", description="**This command will generate a image from the internet.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!image [image]` or `/image [image]` to generate a image from the internet", inline=False)
+            elif interaction.data["values"][0] == "leaderboard":
+              embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
             elif interaction.data["values"][0] == "pfp":
               embed = discord.Embed(title="Help with `pfp` command", description="**This command will show the members image profile.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!pfp` or `/pfp` to show your profile picture. If you want to see profile picture from another member, use `tk!pfp @user` or `/pfp @user`.", inline=False)
@@ -178,11 +181,11 @@ class HelpCommandSlash(commands.Cog):
               discord.SelectOption(label="help", description="Help with `help` command", emoji="❓"),
               discord.SelectOption(label="image", description="Help with `image` command", emoji="🖼️"),
               discord.SelectOption(label="kick", description="Help with `kick` command", emoji="👟"),
+              discord.SelectOption(label="leaderboard", description="Help with `leaderboard` command", emoji="🥇"),            
+              discord.SelectOption(label="leaderboardreset", description="Help with `leadrboardreset` command", emoji="🥇"),               
               discord.SelectOption(label="pfp", description="Help with `pfp` command", emoji="🖼️"),
               discord.SelectOption(label="ping", description="Help with `ping` command", emoji="🏓"),
-              discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),
-              discord.SelectOption(label="rank", description="Help with `rank` command", emoji="🥇"),            
-              discord.SelectOption(label="rankreset", description="Help with `rankreset` command", emoji="🥇"),              
+              discord.SelectOption(label="poll", description="Help with `poll` command", emoji="⁉️"),             
               discord.SelectOption(label="serverinfo", description="Help with `serverinfo` command", emoji="🏠"),
               discord.SelectOption(label="timeout", description="Help with `timeout` command", emoji="⌚"),
               discord.SelectOption(label="userinfo", description="Help with `userinfo` command", emoji="👤"),
@@ -224,6 +227,12 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "leaderboard":
               embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
+            elif interaction.data["values"][0] == "leaderboardreset":
+              embed = discord.Embed(title="Help with `leaderboardreset` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
+              embed.add_field(name="How to use it", value="Type `tk!leaderboardreset` or `/leaderboardreset` to remove all of the points for all members in the specific guild. If you want to reset points for specific member you have choosed, type `tk!leaderboardreset [member]` or `/leaderboardreset [member]`", inline=False)                                             
+            elif interaction.data["values"][0] == "leaderboard":
+              embed = discord.Embed(title="Help with `leaderboard` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
+              embed.add_field(name="How to use it", value="Type `tk!leaderboard` `/leaderboard` to show the leaderboard. If you want to switch to another page, type `tk!leaderboard [page]` or `/leaderboard [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
             elif interaction.data["values"][0] == "pfp":
               embed = discord.Embed(title="Help with `pfp` command", description="**This command will show the members image profile.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!pfp` or `/pfp` to show your profile picture. If you want to see profile picture from another member, use `tk!pfp @user` or `/pfp @user`.", inline=False)
@@ -233,12 +242,6 @@ class HelpCommandSlash(commands.Cog):
             elif interaction.data["values"][0] == "poll":
               embed = discord.Embed(title="Help with `poll` command", description="**This command create and send your question to your members.**", color=0x348cc)    
               embed.add_field(name="How to use it", value="Type `tk!poll [question] | [answer1] | [answer2]` or `/poll [question] [answer1] [answer2]` to create and send your question. Remember in the prefix, you have to insert `|` if you want to insert the next answer or the question you have added.", inline=False)   
-            elif interaction.data["values"][0] == "rank":
-              embed = discord.Embed(title="Help with `rank` command", description="**This command will show the leaderboard with top 10 users.**", color=0x348cc)
-              embed.add_field(name="How to use it", value="Type `tk!rank` `/rank` to show the leaderboard. If you want to switch to another page, type `tk!rank [page]` or `/rank [page]`, for example, the number 2 will switch to the second page. Chatting every 10 seconds you will get 3 points.", inline=False)              
-            elif interaction.data["values"][0] == "rankreset":
-              embed = discord.Embed(title="Help with `rankreset` command", description="**This command will remove all of the points for all members in the specific guild.**", color=0x348cc)              
-              embed.add_field(name="How to use it", value="Type `tk!rankreset` or `/rankreset` to remove all of the points for all members in the specific guild. If you want to reset points for specific member you have choosed, type `tk!rankreset [member]` or `/rankreset [member]`", inline=False) 
             elif interaction.data["values"][0] == "serverinfo":
               embed = discord.Embed(title="Help with `serverinfo` command", description="**This command will show the information about the current server you're in.**", color=0x348cc)
               embed.add_field(name="How to use it", value="Type `tk!serverinfo` or `/serverinfo` to show the information about the current server you're in.", inline=False)

@@ -4,12 +4,12 @@ import os
 from typing import Union
 from discord.ext import commands
 
-class RankresetCommand(commands.Cog):
+class LeaderboardresetCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @commands.command(name="rankreset", description="Reset points for all members.")
-  async def rankreset(self, ctx, member: Union[discord.Member, discord.User, int] = None):
+  @commands.command(name="leaderboardreset", description="Reset points for all members.")
+  async def leaderboardreset(self, ctx, member: Union[discord.Member, discord.User, int] = None):
     async with ctx.typing():
       if ctx.guild:
         if not ctx.author.guild_permissions.administrator:
@@ -45,4 +45,4 @@ class RankresetCommand(commands.Cog):
         await ctx.reply(embed=embed, mention_author = False)
 
 def setup(bot):
-  bot.add_cog(RankresetCommand(bot))
+  bot.add_cog(LeaderboardresetCommand(bot))

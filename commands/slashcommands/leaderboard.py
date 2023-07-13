@@ -9,7 +9,7 @@ from math import ceil
 cooldown = timedelta(seconds=10)
 last_message = {} 
 
-class RankCommandSlash(commands.Cog):
+class LeaderboardCommandSlash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
   
@@ -56,10 +56,10 @@ class RankCommandSlash(commands.Cog):
     with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
         
-  @app_commands.command(name="rank", description="View the leaderboard")
-  @app_commands.describe(page="View the next top 10 page.")
-  async def rank(self, interaction: discord.Interaction, page: int = 1):
-    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("rank", True):
+  @app_commands.command(name="leaderboard", description="View the leaderboard")
+  @app_commands.describe(page="Switch to another page.")
+  async def leaderboard(self, interaction: discord.Interaction, page: int = 1):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("leaderboard", True):
       embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed, ephemeral=True)
       return
@@ -111,4 +111,4 @@ class RankCommandSlash(commands.Cog):
       await interaction.followup.send(embed=embed)
 
 def setup(bot):
-  bot.add_cog(RankCommandSlash(bot))
+  bot.add_cog(LeaderboardCommandSlash(bot))

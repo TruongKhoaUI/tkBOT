@@ -4,14 +4,14 @@ import os
 from discord.ext import commands
 from discord import app_commands
 
-class RankresetCommandSlash(commands.Cog):
+class LeaderboardresetCommandSlash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @app_commands.command(name="rankreset", description="Reset points for all members.")
+  @app_commands.command(name="leaderboardreset", description="Reset points for all members.")
   @app_commands.describe(member="Select a user to reset points for the specific user.")
-  async def rankreset(self, interaction: discord.Interaction, member:discord.User = None):
-    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("rankreset", True):
+  async def leaderboardreset(self, interaction: discord.Interaction, member:discord.User = None):
+    if interaction.guild is not None and not self.bot.command_states.get(str(interaction.guild.id), {}).get("leaderboardreset", True):
       embed = discord.Embed(title="This command has been disabled on this server.", color=0x3f48cc)
       await interaction.response.send_message(embed=embed, ephemeral=True)
       return 
@@ -52,4 +52,4 @@ class RankresetCommandSlash(commands.Cog):
       await interaction.followup.send(embed=embed)
 
 def setup(bot):
-  bot.add_cog(RankresetCommandSlash(bot))
+  bot.add_cog(LeaderboardresetCommandSlash(bot))

@@ -9,7 +9,7 @@ cooldown = timedelta(seconds=10)
 last_message = {}
 
 
-class RankCommand(commands.Cog):
+class LeaderboardCommand(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
@@ -62,8 +62,8 @@ class RankCommand(commands.Cog):
     with open(os.getenv('leaderboard_directory'), 'w') as f:
       json.dump(points, f)
 
-  @commands.command(name="rank", description="View the leaderboard")
-  async def rank(self, ctx, page: int = 1):
+  @commands.command(name="leaderboard", description="View the leaderboard")
+  async def leaderboard(self, ctx, page: int = 1):
     async with ctx.typing():
       if ctx.guild:
         with open(os.getenv('leaderboard_directory'), 'r') as f:
@@ -109,8 +109,8 @@ class RankCommand(commands.Cog):
         embed = discord.Embed(title="Leaderboard", description="You can't view the leaderboard when you're in DM.", color=0x3f48cc)
       await ctx.reply(embed=embed, mention_author=False)
 
-  @rank.error  # Error for the timeout for the `time` value
-  async def rank_error(self, ctx, error):
+  @leaderboard.error  # Error for the timeout for the `time` value
+  async def leaderboard_error(self, ctx, error):
     async with ctx.typing():
       # If the `time` value is not a number, it will sent this message
       if isinstance(error, commands.BadArgument):
@@ -118,4 +118,4 @@ class RankCommand(commands.Cog):
         await ctx.reply(embed=embed, mention_author=False)
 
 def setup(bot):
-  bot.add_cog(RankCommand(bot))
+  bot.add_cog(LeaderboardCommand(bot))
