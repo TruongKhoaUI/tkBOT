@@ -14,7 +14,7 @@ class BotinfoCommand(commands.Cog):
   async def botinfo(self, ctx):  
     async with ctx.typing():
       # Buttons
-      addserver = Button(label="Add to server", url = "https://discord.com/api/oauth2/authorize?client_id=1098583942145257534&permissions=8&scope=applications.commands%20bot", emoji = "➕")
+      addserver = Button(label="Invite me", url = "https://discord.com/api/oauth2/authorize?client_id=1098583942145257534&permissions=8&scope=applications.commands%20bot", emoji = "➕")
       support = Button(label = "Support server", url = "https://discord.com/invite/FuuzWRqYaz", emoji = "🏠")
       gitproject = Button(label = "GitHub Repo", url = "https://github.com/TruongKhoaUI/tkBOT", emoji = "📂")      
       # Bot storage
@@ -38,14 +38,26 @@ class BotinfoCommand(commands.Cog):
       uptime_string = f"{days} days {hours} hours {minutes} minutes {seconds} seconds"
       # Show bot status in embed message
       member = self.bot.get_user(1098583942145257534)
-      embed = discord.Embed(color=0x3f48cc)
-      embed.set_author(name="tkBOT")
-      embed.set_thumbnail(url=member.avatar.url)
-      # About bot specifications
-      embed.add_field(name='**Bot specifications**', value=f'- 🤖｜Bot Version: 2.0.3.20230710\n- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n- ⌚｜Uptime: {uptime_string}', inline=False)
-      embed.add_field(name='**Stats**', value=f"- 🏠｜Servers: {total_servers}\n- 📝｜Channels: {total_channels}\n- 🔊｜Voice Channels: {total_voice_channels}\n- 👥｜Members: {total_members}", inline=False)
-      embed.add_field(name='**Hardware info**', value=f'- 💻｜CPU Usage: {psutil.cpu_percent()}%\n- 📝｜RAM Usage: {memory_used_mb}/512MB\n- 💽｜Disk Usage: {used_disk_space_mb}MB/1024MB', inline=False)
-      embed.add_field(name='**Helpers**', value='- [truongkhoa](discord://-/users/1021023635814760458) (owner)\n- [mr5g](discord://-/users/936240483980693525)', inline=False)
+      embed = discord.Embed(
+        title="Bot Information",
+        description=f"**Bot specifications**\n"
+                    f"- 🤖｜Bot Version: 2.0.3.20230710\n"
+                    f"- 🏓｜Ping-pong respond time: {round(self.bot.latency * 1000)} ms\n"
+                    f"- ⌚｜Uptime: {uptime_string}\n"
+                    f"**Stats**\n"
+                    f"- 🏠｜Servers: {total_servers}\n"
+                    f"- 📝｜Channels: {total_channels}\n"
+                    f"- 🔊｜Voice Channels: {total_voice_channels}\n"
+                    f"- 👥｜Members: {total_members}\n"
+                    f"**Hardware info**\n"
+                    f"- 💻｜CPU Usage: {psutil.cpu_percent()}%\n"
+                    f"- 📝｜RAM Usage: {memory_used_mb}/512MB\n"
+                    f"**Helpers**\n"
+                    f"- [truongkhoa](discord://-/users/1021023635814760458) (owner)\n"
+                    f"- [mr5g](discord://-/users/936240483980693525)",
+        color=0x3f48cc
+      )      
+      embed.set_author(name="tkBOT", icon_url=member.avatar.url)
       view = View()
       view.add_item(addserver)
       view.add_item(support)

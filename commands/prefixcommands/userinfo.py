@@ -9,10 +9,9 @@ class UserinfoCommand(commands.Cog):
   async def userinfo(self, ctx, member: discord.User = None):
     async with ctx.typing():      
       # Get userinfo from a user when they are not in the guild
-      try:         
-        # If the `member` value is empty, it will show their userinfo that they have sent
-        if member is None:
-          member = ctx.author
+      if member is None:
+        member = ctx.author      
+      try:                   
         if isinstance(member, discord.Member):
           # Show the roles they have
           roles = [role for role in member.roles]
@@ -30,7 +29,7 @@ class UserinfoCommand(commands.Cog):
         else:
           embed.set_thumbnail(url=None)
         await ctx.reply(embed=embed, mention_author=False)
-      except commands.UserNotFound:
+      except:
         embed = discord.Embed(title="User Information", description="Invalid user ID or username.", color=0x3f48cc)
         await ctx.reply(embed=embed, mention_author = False)                  
 
