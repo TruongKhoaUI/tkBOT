@@ -32,7 +32,7 @@ class PfpCommand(commands.Cog):
             embed = discord.Embed(title=f"{member}", color=0x3f48cc)
             embed.set_image(url=None)
         await ctx.reply(embed=embed, mention_author = False)
-      except commands.UserNotFound:
+      except Exception:
         embed = discord.Embed(title="Profile Picture", description="Invalid user ID or username.", color=0x3f48cc)
         await ctx.reply(embed=embed, mention_author = False)              
 

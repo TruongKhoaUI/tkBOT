@@ -17,8 +17,6 @@ from commands.prefixcommands.echo import EchoCommand
 from commands.prefixcommands.help import HelpCommand
 from commands.prefixcommands.image import ImageCommand
 from commands.prefixcommands.kick import KickCommand
-from commands.prefixcommands.leaderboard import LeaderboardCommand
-from commands.prefixcommands.leaderboardreset import LeaderboardresetCommand
 from commands.prefixcommands.pfp import PfpCommand
 from commands.prefixcommands.ping import PingCommand
 from commands.prefixcommands.poll import PollCommand
@@ -35,8 +33,6 @@ from commands.slashcommands.echo import EchoCommandSlash
 from commands.slashcommands.help import HelpCommandSlash
 from commands.slashcommands.image import ImageCommandSlash
 from commands.slashcommands.kick import KickCommandSlash
-from commands.slashcommands.leaderboard import LeaderboardCommandSlash
-from commands.slashcommands.leaderboardreset import LeaderboardresetCommandSlash
 from commands.slashcommands.pfp import PfpCommandSlash
 from commands.slashcommands.ping import PingCommandSlash
 from commands.slashcommands.poll import PollCommandSlash
@@ -71,8 +67,6 @@ async def on_ready():
   await bot.add_cog(HelpCommand(bot))
   await bot.add_cog(ImageCommand(bot))
   await bot.add_cog(KickCommand(bot))
-  await bot.add_cog(LeaderboardCommand(bot))  
-  await bot.add_cog(LeaderboardresetCommand(bot))  
   await bot.add_cog(PfpCommand(bot))
   await bot.add_cog(PingCommand(bot))
   await bot.add_cog(PollCommand(bot))
@@ -89,8 +83,6 @@ async def on_ready():
   await bot.add_cog(HelpCommandSlash(bot))  
   await bot.add_cog(ImageCommandSlash(bot))
   await bot.add_cog(KickCommandSlash(bot))
-  await bot.add_cog(LeaderboardCommandSlash(bot))  
-  await bot.add_cog(LeaderboardresetCommandSlash(bot))   
   await bot.add_cog(PfpCommandSlash(bot))
   await bot.add_cog(PingCommandSlash(bot))  
   await bot.add_cog(PollCommandSlash(bot))
